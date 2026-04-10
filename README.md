@@ -4,6 +4,19 @@ Classical-ML image classification on a CIFAR-10-style dataset (50k train / 10k t
 
 **Constraints.** No neural networks, no pretrained models, no extra datasets. Only methods covered in the course lectures (preprocessing, PCA, SVM / LogReg, KMeans, ensembles, etc.).
 
+## Validation progress
+
+Running log of every time a new best-so-far validation accuracy was hit. Updated automatically after each periodic sweep check.
+
+| Time (local) | Run | Config | Val acc | Kaggle public | Note |
+|---|---|---|---|---|---|
+| 2026-04-11 04:30 | run_01 | PCA(200) + SVC-RBF | 0.4974 | — | raw-pixel baseline |
+| 2026-04-11 05:30 | run_02 | HOG + color hist + LBP → HistGB | 0.6468 | 0.64250 | first submission |
+| 2026-04-11 06:18 | run_04 | Coates K=400 P=6 C=0.01 | 0.7302 | — | crossed the 0.70 bar |
+| 2026-04-11 06:29 | run_04 | Coates K=400 P=6 C=0.03 | 0.7328 | **0.73350** | submitted, 50/50 locked |
+| 2026-04-11 07:01 | run_05 | Coates K=1600 P=6 C=0.001 (GPU) | 0.7576 | — | GPU sweep started |
+| 2026-04-11 07:35 | run_05 | Coates K=1600 P=6 C=0.003 (GPU) | 0.7656 | — | refit pending (low RAM) |
+
 ## Approach
 
 Five progressively stronger pipelines, all built from `scikit-learn` / `scikit-image` primitives:
