@@ -1,0 +1,46 @@
+[04:27:45] INFO === run_02_hog started ===
+[04:27:45] INFO args: {'smoke': False, 'svm_subset': 20000, 'n_jobs': 6}
+[04:27:45] INFO [START] load train
+[04:27:45] INFO [END]   load train  (0.1s)
+[04:27:45] INFO [START] load test
+[04:27:45] INFO [END]   load test  (0.0s)
+[04:27:45] INFO train X (50000, 32, 32, 3)  y (50000,)   test X (10000, 32, 32, 3)
+[04:27:45] INFO [START] extract HOG features (train, n=50000)
+[04:27:57] INFO [END]   extract HOG features (train, n=50000)  (12.4s)
+[04:27:57] INFO features shape (50000, 1354)  dtype float32
+[04:27:57] INFO [START] extract HOG features (test, n=10000)
+[04:28:00] INFO [END]   extract HOG features (test, n=10000)  (2.6s)
+[04:28:00] INFO features shape (10000, 1354)  dtype float32
+[04:28:00] INFO train (45000, 1354)  val (5000, 1354)  test (10000, 1354)
+[04:28:00] INFO [START] StandardScaler fit
+[04:28:01] INFO [END]   StandardScaler fit  (1.3s)
+[04:28:01] INFO [START] HistGB fit (full)
+[04:34:38] INFO HistGB val acc = 0.6468
+[04:34:38] INFO [END]   HistGB fit (full)  (396.2s)
+[04:34:38] INFO [START] RandomForest fit (full)
+[04:36:22] INFO RF val acc = 0.5674
+[04:36:22] INFO [END]   RandomForest fit (full)  (104.1s)
+[04:36:22] INFO [START] LogReg fit
+[04:37:20] INFO LogReg val acc = 0.5550
+[04:37:20] INFO [END]   LogReg fit  (58.0s)
+[04:37:20] INFO [START] SVC-RBF fit (20000 samples, C=10, gamma=scale)
+[05:11:07] INFO SVC-RBF val acc = 0.6416
+[05:11:07] INFO [END]   SVC-RBF fit (20000 samples, C=10, gamma=scale)  (2027.4s)
+[05:11:07] INFO === Validation summary ===
+[05:11:07] INFO   hgb           0.6468
+[05:11:07] INFO   svc_rbf       0.6416
+[05:11:07] INFO   rf            0.5674
+[05:11:07] INFO   logreg        0.5550
+[05:11:07] INFO [START] Voting (soft) fit on svm subset
+[05:44:55] INFO Voting val acc = 0.6434
+[05:44:55] INFO [END]   Voting (soft) fit on svm subset  (2028.2s)
+[05:44:55] INFO Best on val: hgb (0.6468)
+[05:44:55] INFO [START] Refit scaler on full train+val
+[05:44:57] INFO [END]   Refit scaler on full train+val  (1.4s)
+[05:44:57] INFO [START] Refit hgb on full
+[05:49:43] INFO [END]   Refit hgb on full  (286.7s)
+[05:49:43] INFO [START] Predict test
+[05:49:45] INFO [END]   Predict test  (1.3s)
+[05:49:45] INFO Wrote submission to /home/yitongli/Courses/26spring/COMP3314/Assignment3/submissions/sub_run_02_hog.csv
+[05:49:45] INFO Wrote checkpoint to /home/yitongli/Courses/26spring/COMP3314/Assignment3/checkpoints/run_02_hog.joblib
+[05:49:45] INFO === run_02_hog done ===

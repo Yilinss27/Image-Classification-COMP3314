@@ -1,0 +1,57 @@
+[05:53:52] INFO === run_04_coates_sweep started ===
+[05:53:52] INFO args: {'smoke': False, 'n_patches': 400000, 'batch_size': 300, 'n_jobs': 8, 'configs': 'default'}
+[05:53:52] INFO [START] load train/test
+[05:53:52] INFO [END]   load train/test  (0.4s)
+[05:53:52] INFO train sub 45000  val 5000  test 10000
+[05:53:52] INFO sweep: 5 configs x 6 C values = 30 experiments
+[05:53:52] INFO --- config 1/5: {'K': 400, 'patch': 6, 'stride': 1, 'pool': 2} ---
+[05:53:53] INFO [START] sample 400000 random patches (patch=6)
+[05:53:53] INFO [END]   sample 400000 random patches (patch=6)  (0.5s)
+[05:53:53] INFO [START] contrast normalize patches
+[05:53:53] INFO [END]   contrast normalize patches  (0.3s)
+[05:53:53] INFO [START] fit ZCA
+[05:53:53] INFO [END]   fit ZCA  (0.1s)
+[05:53:53] INFO [START] apply ZCA
+[05:53:54] INFO [END]   apply ZCA  (0.1s)
+[05:53:54] INFO [START] MiniBatchKMeans (K=400)
+[05:53:57] INFO [END]   MiniBatchKMeans (K=400)  (3.1s)
+[05:53:57] INFO saved dictionary sweep_dict_K400_P6_N400000.npz
+[05:53:57] INFO [START] encode train (50000 imgs, K=400, patch=6)
+[05:56:50] INFO [END]   encode train (50000 imgs, K=400, patch=6)  (173.8s)
+[05:56:51] INFO saved features sweep_feat_train_K400_P6.npy shape (50000, 1600)
+[05:56:51] INFO [START] encode test (10000 imgs, K=400, patch=6)
+[05:57:28] INFO [END]   encode test (10000 imgs, K=400, patch=6)  (37.8s)
+[05:57:28] INFO saved features sweep_feat_test_K400_P6.npy shape (10000, 1600)
+[05:57:29] INFO [START] LinearSVC C=0.001
+[06:02:43] INFO [END]   LinearSVC C=0.001  (314.0s)
+[06:02:43] INFO   K=400 patch=6 C=0.001  val=0.7096
+[06:02:43] INFO [START] LinearSVC C=0.003
+[06:09:25] INFO [END]   LinearSVC C=0.003  (401.7s)
+[06:09:25] INFO   K=400 patch=6 C=0.003  val=0.7254
+[06:09:25] INFO [START] LinearSVC C=0.01
+[06:18:31] INFO [END]   LinearSVC C=0.01  (546.3s)
+[06:18:31] INFO   K=400 patch=6 C=0.01  val=0.7302
+[06:18:31] INFO [START] LinearSVC C=0.03
+[06:29:33] INFO [END]   LinearSVC C=0.03  (661.6s)
+[06:29:33] INFO   K=400 patch=6 C=0.03  val=0.7328
+[06:29:33] INFO [START] LinearSVC C=0.1
+[06:44:39] INFO [END]   LinearSVC C=0.1  (906.1s)
+[06:44:39] INFO   K=400 patch=6 C=0.1  val=0.7324
+[06:44:39] INFO [START] LinearSVC C=0.3
+[07:03:56] INFO [END]   LinearSVC C=0.3  (1156.8s)
+[07:03:56] INFO   K=400 patch=6 C=0.3  val=0.7272
+[07:03:56] INFO   [best for cfg] C=0.03 acc=0.7328
+[07:03:58] INFO --- config 2/5: {'K': 800, 'patch': 6, 'stride': 1, 'pool': 2} ---
+[07:04:01] INFO reusing legacy dictionary coates_dict_full.npz
+[07:04:01] INFO reusing legacy features coates_feat_train_full_K800.npy
+[07:04:02] INFO reusing legacy features coates_feat_test_full_K800.npy
+[07:04:03] INFO [START] LinearSVC C=0.001
+[07:15:52] INFO [END]   LinearSVC C=0.001  (708.2s)
+[07:15:52] INFO   K=800 patch=6 C=0.001  val=0.7362
+[07:15:52] INFO [START] LinearSVC C=0.003
+[07:31:21] INFO [END]   LinearSVC C=0.003  (929.5s)
+[07:31:21] INFO   K=800 patch=6 C=0.003  val=0.7510
+[07:31:21] INFO [START] LinearSVC C=0.01
+[07:49:11] INFO [END]   LinearSVC C=0.01  (1070.2s)
+[07:49:11] INFO   K=800 patch=6 C=0.01  val=0.7544
+[07:49:11] INFO [START] LinearSVC C=0.03

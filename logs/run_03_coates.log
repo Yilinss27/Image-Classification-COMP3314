@@ -1,0 +1,31 @@
+[04:19:46] INFO === run_03_coates started ===
+[04:19:46] INFO args: {'smoke': False, 'k': 800, 'n_patches': 400000, 'batch_size': 300, 'n_jobs': 6}
+[04:19:46] INFO [START] load train
+[04:19:46] INFO [END]   load train  (0.1s)
+[04:19:46] INFO [START] load test
+[04:19:46] INFO [END]   load test  (0.0s)
+[04:19:46] INFO train X (50000, 32, 32, 3)   test X (10000, 32, 32, 3)
+[04:19:46] INFO [START] sample 400000 random patches
+[04:19:47] INFO [END]   sample 400000 random patches  (1.0s)
+[04:19:47] INFO random patches: (400000, 108) float32
+[04:19:47] INFO [START] contrast normalize patches
+[04:19:47] INFO [END]   contrast normalize patches  (0.4s)
+[04:19:47] INFO [START] fit ZCA
+[04:19:47] INFO [END]   fit ZCA  (0.1s)
+[04:19:47] INFO [START] apply ZCA to patches
+[04:19:47] INFO [END]   apply ZCA to patches  (0.1s)
+[04:19:47] INFO whitened patches: (400000, 108)
+[04:19:47] INFO [START] MiniBatchKMeans (K=800)
+[04:19:58] INFO [END]   MiniBatchKMeans (K=800)  (10.7s)
+[04:19:58] INFO centroids: (800, 108)
+[04:19:58] INFO saved dictionary to coates_dict_full.npz
+[04:19:58] INFO [START] encode train (50000 images, batch=300)
+[04:24:58] INFO [END]   encode train (50000 images, batch=300)  (299.7s)
+[04:24:58] INFO train features (50000, 3200) float32
+[04:24:58] INFO [START] encode test (10000 images)
+[04:26:10] INFO [END]   encode test (10000 images)  (71.5s)
+[04:26:10] INFO test features (10000, 3200)
+[04:26:10] INFO split train (45000, 3200)  val (5000, 3200)
+[04:26:10] INFO [START] StandardScaler fit
+[04:26:12] INFO [END]   StandardScaler fit  (1.6s)
+[04:26:12] INFO [START] LinearSVC fit (C=0.01)

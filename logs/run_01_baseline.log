@@ -1,0 +1,43 @@
+[04:19:38] INFO === run_01_baseline started ===
+[04:19:38] INFO args: {'smoke': False, 'n_pca': 200, 'svm_subset': 15000, 'n_jobs': 6}
+[04:19:38] INFO [START] load train
+[04:19:38] INFO [END]   load train  (0.1s)
+[04:19:38] INFO [START] load test
+[04:19:38] INFO [END]   load test  (0.0s)
+[04:19:38] INFO train X (50000, 32, 32, 3)  y (50000,)   test X (10000, 32, 32, 3)
+[04:19:39] INFO train (45000, 3072)  val (5000, 3072)  test (10000, 3072)
+[04:19:39] INFO [START] StandardScaler fit
+[04:19:40] INFO [END]   StandardScaler fit  (1.7s)
+[04:19:40] INFO [START] PCA fit (n_components=200)
+[04:19:44] INFO PCA explained variance: 0.9496
+[04:19:44] INFO [END]   PCA fit (n_components=200)  (3.7s)
+[04:19:44] INFO [START] LogReg fit
+[04:19:49] INFO LogReg val acc = 0.4114
+[04:19:49] INFO [END]   LogReg fit  (4.5s)
+[04:19:49] INFO [START] KNN fit (k=10)
+[04:19:53] INFO KNN val acc = 0.3588
+[04:19:53] INFO [END]   KNN fit (k=10)  (4.2s)
+[04:19:53] INFO [START] LinearSVC fit
+[04:20:23] INFO LinearSVC val acc = 0.4038
+[04:20:23] INFO [END]   LinearSVC fit  (30.7s)
+[04:20:23] INFO [START] SVC-RBF fit (15000 samples)
+[04:22:28] INFO SVC-RBF val acc = 0.4974
+[04:22:28] INFO [END]   SVC-RBF fit (15000 samples)  (124.2s)
+[04:22:28] INFO === Validation summary ===
+[04:22:28] INFO   svc_rbf       0.4974
+[04:22:28] INFO   logreg        0.4114
+[04:22:28] INFO   lsvc          0.4038
+[04:22:28] INFO   knn           0.3588
+[04:22:28] INFO [START] VotingClassifier (soft) fit
+[04:24:26] INFO VotingClassifier val acc = 0.4756
+[04:24:26] INFO [END]   VotingClassifier (soft) fit  (118.5s)
+[04:24:26] INFO Best on val: svc_rbf (0.4974)
+[04:24:26] INFO [START] Refit scaler+pca on full train+val
+[04:24:38] INFO [END]   Refit scaler+pca on full train+val  (11.5s)
+[04:24:38] INFO [START] Refit svc_rbf on full
+[04:26:37] INFO [END]   Refit svc_rbf on full  (119.4s)
+[04:26:37] INFO [START] Predict test
+[04:27:40] INFO [END]   Predict test  (63.1s)
+[04:27:40] INFO Wrote submission to /home/yitongli/Courses/26spring/COMP3314/Assignment3/submissions/sub_run_01_baseline.csv
+[04:27:41] INFO Wrote checkpoint to /home/yitongli/Courses/26spring/COMP3314/Assignment3/checkpoints/run_01_baseline.joblib
+[04:27:41] INFO === run_01_baseline done ===

@@ -1,0 +1,19 @@
+# Large / regeneratable artifacts
+cache/
+data/
+checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.ipynb_checkpoints/
+
+# Claude / local tooling state
+.claude/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store

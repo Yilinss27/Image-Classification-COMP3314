@@ -1,0 +1,80 @@
+[06:16:43] INFO === run_05_gpu_coates started ===
+[06:16:43] INFO args: {'smoke': True, 'n_patches': 500000, 'batch_size': 300, 'n_jobs': 4, 'configs': 'gpu', 'tag': 'gpu'}
+[06:16:45] INFO GPU: device 0, free=3.22 GiB total=4.00 GiB
+[06:16:45] INFO [START] load train/test
+[06:16:45] INFO [END]   load train/test  (0.1s)
+[06:16:45] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[06:16:45] INFO train sub 45000  val 5000
+[06:16:45] INFO sweep: 1 configs x 2 C values = 2 experiments
+[06:16:45] INFO --- config 1/1: {'K': 100, 'patch': 6, 'stride': 1, 'pool': 2} ---
+[06:16:45] INFO [START] sample 20000 patches (P=6)
+[06:16:45] INFO [END]   sample 20000 patches (P=6)  (0.0s)
+[06:16:45] INFO [START] contrast normalize
+[06:16:45] INFO [END]   contrast normalize  (0.0s)
+[06:16:45] INFO [START] fit ZCA
+[06:16:46] INFO [END]   fit ZCA  (0.9s)
+[06:16:46] INFO [START] apply ZCA
+[06:16:46] INFO [END]   apply ZCA  (0.0s)
+[06:16:46] INFO [START] MiniBatchKMeans K=100
+[06:16:46] INFO [END]   MiniBatchKMeans K=100  (0.8s)
+[06:16:47] INFO saved dict gpu_dict_K100_P6_N20000.npz
+[06:16:47] INFO [START] GPU encode train (1500 imgs, K=100, P=6)
+[06:16:48] INFO [END]   GPU encode train (1500 imgs, K=100, P=6)  (1.5s)
+[06:16:48] INFO saved features gpu_feat_train_K100_P6.npy shape (1500, 400)
+[06:16:48] INFO [START] GPU encode test (500 imgs, K=100, P=6)
+[06:16:48] INFO [END]   GPU encode test (500 imgs, K=100, P=6)  (0.1s)
+[06:16:48] INFO saved features gpu_feat_test_K100_P6.npy shape (500, 400)
+[06:16:48] INFO [START] LinearSVC C=0.01
+[06:16:49] INFO [END]   LinearSVC C=0.01  (0.6s)
+[06:16:49] INFO   K=100 P=6 C=0.01  val=0.5267
+[06:16:49] INFO [START] LinearSVC C=0.1
+[06:16:50] INFO [END]   LinearSVC C=0.1  (0.8s)
+[06:16:50] INFO   K=100 P=6 C=0.1  val=0.4933
+[06:16:50] INFO   [best] C=0.01 acc=0.5267
+[06:16:50] INFO === sweep complete ===
+[06:16:50] INFO Top 10:
+[06:16:50] INFO   K=100 P=6 C=0.010  val=0.5267
+[06:16:50] INFO   K=100 P=6 C=0.100  val=0.4933
+[06:16:50] INFO >>> BEST: K=100 P=6 C=0.01  val=0.5267
+[06:16:50] INFO loaded features gpu_feat_train_K100_P6.npy
+[06:16:50] INFO loaded features gpu_feat_test_K100_P6.npy
+[06:16:50] INFO [START] LinearSVC final fit on FULL (C=0.01)
+[06:16:50] INFO [END]   LinearSVC final fit on FULL (C=0.01)  (0.6s)
+[06:16:50] INFO [START] predict test
+[06:16:50] INFO [END]   predict test  (0.0s)
+[06:16:50] INFO Wrote submission to /home/yitongli/Courses/26spring/COMP3314/Assignment3/submissions/sub_run_05_gpu_coates.csv
+[06:16:50] INFO Wrote checkpoint to /home/yitongli/Courses/26spring/COMP3314/Assignment3/checkpoints/run_05_gpu_coates.joblib
+[06:16:50] INFO === run_05_gpu_coates done ===
+[06:17:19] INFO === run_05_gpu_coates started ===
+[06:17:19] INFO args: {'smoke': False, 'n_patches': 500000, 'batch_size': 300, 'n_jobs': 4, 'configs': 'gpu', 'tag': 'gpu'}
+[06:17:21] INFO GPU: device 0, free=3.22 GiB total=4.00 GiB
+[06:17:21] INFO [START] load train/test
+[06:17:21] INFO [END]   load train/test  (0.1s)
+[06:17:21] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[06:17:21] INFO train sub 45000  val 5000
+[06:17:21] INFO sweep: 4 configs x 5 C values = 20 experiments
+[06:17:21] INFO --- config 1/4: {'K': 1600, 'patch': 6, 'stride': 1, 'pool': 2} ---
+[06:17:21] INFO [START] sample 500000 patches (P=6)
+[06:17:22] INFO [END]   sample 500000 patches (P=6)  (0.6s)
+[06:17:22] INFO [START] contrast normalize
+[06:17:22] INFO [END]   contrast normalize  (0.7s)
+[06:17:22] INFO [START] fit ZCA
+[06:17:22] INFO [END]   fit ZCA  (0.1s)
+[06:17:22] INFO [START] apply ZCA
+[06:17:23] INFO [END]   apply ZCA  (0.1s)
+[06:17:23] INFO [START] MiniBatchKMeans K=1600
+[06:17:39] INFO [END]   MiniBatchKMeans K=1600  (16.9s)
+[06:17:40] INFO saved dict gpu_dict_K1600_P6_N500000.npz
+[06:17:40] INFO [START] GPU encode train (50000 imgs, K=1600, P=6)
+[06:25:07] INFO [END]   GPU encode train (50000 imgs, K=1600, P=6)  (447.0s)
+[06:25:09] INFO saved features gpu_feat_train_K1600_P6.npy shape (50000, 6400)
+[06:25:09] INFO [START] GPU encode test (10000 imgs, K=1600, P=6)
+[06:26:46] INFO [END]   GPU encode test (10000 imgs, K=1600, P=6)  (96.4s)
+[06:26:46] INFO saved features gpu_feat_test_K1600_P6.npy shape (10000, 6400)
+[06:27:33] INFO [START] LinearSVC C=0.001
+[07:01:28] INFO [END]   LinearSVC C=0.001  (2035.2s)
+[07:01:28] INFO   K=1600 P=6 C=0.001  val=0.7576
+[07:01:28] INFO [START] LinearSVC C=0.003
+[07:35:42] INFO [END]   LinearSVC C=0.003  (2053.7s)
+[07:35:42] INFO   K=1600 P=6 C=0.003  val=0.7656
+[07:35:42] INFO [START] LinearSVC C=0.01
