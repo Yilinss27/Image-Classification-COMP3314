@@ -3608,3 +3608,88 @@ OSError: Not enough free space to write 6400000000 bytes after offset 128
 [2026-04-11 23:28:43.205] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
 [2026-04-11 23:29:05.588] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
 [23:29:12] INFO   P=8 K=8000 C=0.005 val=0.7416  (83.4s)
+[2026-04-11 23:30:03.889] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:30:33.458] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:30:52.048] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[23:31:00] INFO   P=8 K=8000 C=0.01 val=0.7328  (108.6s)
+[2026-04-11 23:31:22.735] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:32:02.445] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:32:45.733] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:33:05.528] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[23:33:05] INFO   P=8 K=8000 C=0.02 val=0.7258  (124.8s)
+[2026-04-11 23:33:27.636] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:33:43.229] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:34:18.863] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:34:48.602] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:35:00.128] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:35:07.842] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:35:28.968] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[23:35:29] INFO   P=8 K=8000 C=0.03 val=0.7254  (143.4s)
+[23:35:29] INFO [END]   parallel LinearSVC P=8 K=8000 (5 C, 1-way)  (543.8s)
+[23:35:29] INFO   [best P=8 K=8000] C=0.003 val=0.7502
+[23:35:29] INFO [START] refit full P=8 K=8000 C=0.003
+[2026-04-11 23:36:24.223] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:36:34.676] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-11 23:36:50.221] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-11 23:36:58.964] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-11 23:37:23.108] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-11 23:37:29.251] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-11 23:37:51.500] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[23:37:51] INFO [END]   refit full P=8 K=8000 C=0.003  (142.7s)
+[23:37:51] INFO   wrote sub_run07_P8_K8000_C0.003.csv (P=8, K=8000, C=0.003, val=0.7502)
+[23:37:52] INFO 
+=== sweep complete ===
+[23:37:52] INFO Top 10 by val_acc:
+[23:37:52] INFO   P=6 K=8000  C=0.0030  val=0.7858
+[23:37:52] INFO   P=6 K=8000  C=0.0050  val=0.7842
+[23:37:52] INFO   P=7 K=4000  C=0.0030  val=0.7824
+[23:37:52] INFO   P=8 K=3200  C=0.0030  val=0.7816
+[23:37:52] INFO   P=7 K=6000  C=0.0030  val=0.7810
+[23:37:52] INFO   P=7 K=3200  C=0.0050  val=0.7796
+[23:37:52] INFO   P=5 K=8000  C=0.0030  val=0.7794
+[23:37:52] INFO   P=8 K=3200  C=0.0050  val=0.7790
+[23:37:52] INFO   P=5 K=6000  C=0.0050  val=0.7788
+[23:37:52] INFO   P=7 K=3200  C=0.0030  val=0.7788
+[23:37:52] INFO 
+Submission CSVs saved to /root/autodl-tmp/Image-Classification-COMP3314/submissions:
+[23:37:52] INFO   P=5 K=400  C=0.03  val=0.7282
+[23:37:52] INFO   P=5 K=800  C=0.02  val=0.7478
+[23:37:52] INFO   P=5 K=1200  C=0.03  val=0.7530
+[23:37:52] INFO   P=5 K=1600  C=0.02  val=0.7626
+[23:37:52] INFO   P=5 K=2000  C=0.01  val=0.7600
+[23:37:52] INFO   P=5 K=2400  C=0.005  val=0.7664
+[23:37:52] INFO   P=5 K=3200  C=0.005  val=0.7712
+[23:37:52] INFO   P=5 K=4000  C=0.003  val=0.7728
+[23:37:52] INFO   P=5 K=6000  C=0.005  val=0.7788
+[23:37:52] INFO   P=5 K=8000  C=0.003  val=0.7794
+[23:37:52] INFO   P=6 K=400  C=0.03  val=0.7284
+[23:37:52] INFO   P=6 K=800  C=0.02  val=0.7422
+[23:37:52] INFO   P=6 K=1200  C=0.02  val=0.7620
+[23:37:52] INFO   P=6 K=1600  C=0.01  val=0.7646
+[23:37:52] INFO   P=6 K=2000  C=0.01  val=0.7668
+[23:37:52] INFO   P=6 K=2400  C=0.003  val=0.7752
+[23:37:52] INFO   P=6 K=3200  C=0.005  val=0.7784
+[23:37:52] INFO   P=6 K=4000  C=0.003  val=0.7786
+[23:37:52] INFO   P=6 K=6000  C=0.003  val=0.7780
+[23:37:52] INFO   P=6 K=8000  C=0.003  val=0.7858
+[23:37:52] INFO   P=7 K=400  C=0.03  val=0.7290
+[23:37:52] INFO   P=7 K=800  C=0.03  val=0.7546
+[23:37:52] INFO   P=7 K=1200  C=0.02  val=0.7588
+[23:37:52] INFO   P=7 K=1600  C=0.003  val=0.7702
+[23:37:52] INFO   P=7 K=2000  C=0.005  val=0.7696
+[23:37:52] INFO   P=7 K=2400  C=0.005  val=0.7680
+[23:37:52] INFO   P=7 K=3200  C=0.005  val=0.7796
+[23:37:52] INFO   P=7 K=4000  C=0.003  val=0.7824
+[23:37:52] INFO   P=7 K=6000  C=0.003  val=0.7810
+[23:37:52] INFO   P=7 K=8000  C=0.003  val=0.7752
+[23:37:52] INFO   P=8 K=400  C=0.03  val=0.7258
+[23:37:52] INFO   P=8 K=800  C=0.02  val=0.7492
+[23:37:52] INFO   P=8 K=1200  C=0.01  val=0.7616
+[23:37:52] INFO   P=8 K=1600  C=0.005  val=0.7628
+[23:37:52] INFO   P=8 K=2000  C=0.005  val=0.7752
+[23:37:52] INFO   P=8 K=2400  C=0.003  val=0.7742
+[23:37:52] INFO   P=8 K=3200  C=0.003  val=0.7816
+[23:37:52] INFO   P=8 K=4000  C=0.003  val=0.7702
+[23:37:52] INFO   P=8 K=6000  C=0.003  val=0.7750
+[23:37:52] INFO   P=8 K=8000  C=0.003  val=0.7502
+[23:37:52] INFO === run_07_cuml_sweep done ===
