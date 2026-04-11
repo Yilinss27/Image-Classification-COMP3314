@@ -8,6 +8,7 @@ Memory-careful: drop raw feature arrays immediately after scaling.
 """
 from __future__ import annotations
 
+import argparse
 import gc
 import sys
 import time
@@ -22,9 +23,15 @@ ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "cache"
 SUB = ROOT / "submissions"
 
-K = 3200
-P = 6
-C = 0.01
+ap = argparse.ArgumentParser()
+ap.add_argument("--C", type=float, default=0.01)
+ap.add_argument("--K", type=int, default=3200)
+ap.add_argument("--P", type=int, default=6)
+args = ap.parse_args()
+
+K = args.K
+P = args.P
+C = args.C
 OUT = SUB / f"sub_sota_K{K}_P{P}_C{C}.csv"
 
 t0 = time.time()
