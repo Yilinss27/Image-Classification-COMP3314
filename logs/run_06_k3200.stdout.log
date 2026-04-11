@@ -1,0 +1,6 @@
+[    0.0s] loading K=3200 P=6 features
+[    2.6s] X_tr (50000, 12800)  X_te (10000, 12800)  y (50000,)
+[    2.6s] val split: train 45000  val 5000
+[    2.6s] StandardScaler fit on split train
+[   14.8s] scaled: split train (45000, 12800)  val (5000, 12800)
+[   14.8s] [START] LinearSVC C=0.001
