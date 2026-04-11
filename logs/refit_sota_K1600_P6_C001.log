@@ -3,3 +3,7 @@
 [   9.3s] StandardScaler fit_transform train
 [  43.7s] StandardScaler transform test
 [  44.1s] LinearSVC fit C=0.01
+[3043.5s] fit done
+[3043.5s] predict test
+[3045.1s] preds (10000,) dist [ 932  996  967  908  969 1020 1103 1041 1015 1049]
+[3045.2s] wrote /home/yitongli/Courses/26spring/COMP3314/Assignment3/submissions/sub_sota_K1600_P6_C0.01.csv
