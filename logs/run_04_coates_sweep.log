@@ -106,3 +106,25 @@
 [08:39:56] INFO [END]   LinearSVC C=0.1  (1601.4s)
 [08:39:56] INFO   K=800 patch=6 C=0.1  val=0.7348
 [08:39:56] INFO [START] LinearSVC C=0.3
+[09:15:20] INFO [END]   LinearSVC C=0.3  (2124.5s)
+[09:15:20] INFO   K=800 patch=6 C=0.3  val=0.7224
+[09:15:20] INFO   [best for cfg] C=0.01 acc=0.7544
+[09:15:21] INFO --- config 3/5: {'K': 1600, 'patch': 6, 'stride': 1, 'pool': 2} ---
+[09:15:21] INFO [START] sample 400000 random patches (patch=6)
+[09:15:22] INFO [END]   sample 400000 random patches (patch=6)  (0.5s)
+[09:15:22] INFO [START] contrast normalize patches
+[09:15:22] INFO [END]   contrast normalize patches  (0.2s)
+[09:15:22] INFO [START] fit ZCA
+[09:15:22] INFO [END]   fit ZCA  (0.1s)
+[09:15:22] INFO [START] apply ZCA
+[09:15:22] INFO [END]   apply ZCA  (0.2s)
+[09:15:22] INFO [START] MiniBatchKMeans (K=1600)
+[09:15:36] INFO [END]   MiniBatchKMeans (K=1600)  (14.4s)
+[09:15:36] INFO saved dictionary sweep_dict_K1600_P6_N400000.npz
+[09:15:36] INFO [START] encode train (50000 imgs, K=1600, patch=6)
+[09:23:43] INFO [END]   encode train (50000 imgs, K=1600, patch=6)  (486.7s)
+[09:23:45] INFO saved features sweep_feat_train_K1600_P6.npy shape (50000, 6400)
+[09:23:45] INFO [START] encode test (10000 imgs, K=1600, patch=6)
+[09:25:24] INFO [END]   encode test (10000 imgs, K=1600, patch=6)  (98.9s)
+[09:25:24] INFO saved features sweep_feat_test_K1600_P6.npy shape (10000, 6400)
+[09:25:28] INFO [START] LinearSVC C=0.001
