@@ -1,0 +1,174 @@
+[05:55:27] INFO === run_08_phase_b started ===
+[05:55:27] INFO 16 (P,K) targets x 3 C = 48 fits
+[05:55:27] INFO [START] load train/test
+[05:55:27] INFO [END]   load train/test  (0.1s)
+[05:55:27] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[05:55:27] INFO train sub 45000  val 5000
+[05:55:27] INFO 
+### P=4 K=8000  (run_07 C=0.003 baseline = 0.7686) ###
+[05:55:27] INFO loaded dict run07_dict_K8000_P4_N1000000.npz
+[05:55:27] INFO [START] GPU encode train+test K=8000 P=4
+[05:56:16] INFO [END]   GPU encode train+test K=8000 P=4  (49.1s)
+[05:57:53] INFO   P=4 K=8000 C=0.0005 val=0.7552  (Δ vs C=0.003 baseline -0.0134, 62.5s)
+[05:58:57] INFO   P=4 K=8000 C=0.001 val=0.7598  (Δ vs C=0.003 baseline -0.0088, 63.9s)
+[06:00:26] INFO   P=4 K=8000 C=0.002 val=0.7664  (Δ vs C=0.003 baseline -0.0022, 88.7s)
+[06:00:26] INFO   no improvement; all new C values worse than baseline
+[06:00:27] INFO 
+### P=5 K=4000  (run_07 C=0.003 baseline = 0.7728) ###
+[06:00:27] INFO loaded dict run07_dict_K4000_P5_N1000000.npz
+[06:00:27] INFO [START] GPU encode train+test K=4000 P=5
+[06:01:08] INFO [END]   GPU encode train+test K=4000 P=5  (40.5s)
+[06:01:55] INFO   P=5 K=4000 C=0.0005 val=0.7540  (Δ vs C=0.003 baseline -0.0188, 21.5s)
+[06:02:20] INFO   P=5 K=4000 C=0.001 val=0.7616  (Δ vs C=0.003 baseline -0.0112, 24.4s)
+[06:02:54] INFO   P=5 K=4000 C=0.002 val=0.7712  (Δ vs C=0.003 baseline -0.0016, 34.2s)
+[06:02:54] INFO   no improvement; all new C values worse than baseline
+[06:02:54] INFO 
+### P=5 K=8000  (run_07 C=0.003 baseline = 0.7794) ###
+[06:02:55] INFO loaded dict run07_dict_K8000_P5_N1000000.npz
+[06:02:55] INFO [START] GPU encode train+test K=8000 P=5
+[06:03:53] INFO [END]   GPU encode train+test K=8000 P=5  (58.2s)
+[06:05:30] INFO   P=5 K=8000 C=0.0005 val=0.7684  (Δ vs C=0.003 baseline -0.0110, 49.6s)
+[06:06:35] INFO   P=5 K=8000 C=0.001 val=0.7746  (Δ vs C=0.003 baseline -0.0048, 65.1s)
+[06:07:53] INFO   P=5 K=8000 C=0.002 val=0.7768  (Δ vs C=0.003 baseline -0.0026, 77.9s)
+[06:07:53] INFO   no improvement; all new C values worse than baseline
+[06:07:54] INFO 
+### P=6 K=2400  (run_07 C=0.003 baseline = 0.7752) ###
+[06:07:54] INFO loaded dict run07_dict_K2400_P6_N1000000.npz
+[06:07:54] INFO [START] GPU encode train+test K=2400 P=6
+[06:08:35] INFO [END]   GPU encode train+test K=2400 P=6  (40.9s)
+[06:09:06] INFO   P=6 K=2400 C=0.0005 val=0.7496  (Δ vs C=0.003 baseline -0.0256, 11.6s)
+[06:09:19] INFO   P=6 K=2400 C=0.001 val=0.7608  (Δ vs C=0.003 baseline -0.0144, 13.2s)
+[06:09:35] INFO   P=6 K=2400 C=0.002 val=0.7730  (Δ vs C=0.003 baseline -0.0022, 16.3s)
+[06:09:35] INFO   no improvement; all new C values worse than baseline
+[06:09:36] INFO 
+### P=6 K=4000  (run_07 C=0.003 baseline = 0.7786) ###
+[06:09:36] INFO loaded dict run07_dict_K4000_P6_N1000000.npz
+[06:09:36] INFO [START] GPU encode train+test K=4000 P=6
+[06:10:26] INFO [END]   GPU encode train+test K=4000 P=6  (49.6s)
+[06:11:22] INFO   P=6 K=4000 C=0.0005 val=0.7614  (Δ vs C=0.003 baseline -0.0172, 21.4s)
+[06:11:47] INFO   P=6 K=4000 C=0.001 val=0.7694  (Δ vs C=0.003 baseline -0.0092, 24.8s)
+[06:12:17] INFO   P=6 K=4000 C=0.002 val=0.7780  (Δ vs C=0.003 baseline -0.0006, 30.3s)
+[06:12:17] INFO   no improvement; all new C values worse than baseline
+[06:12:17] INFO 
+### P=6 K=6000  (run_07 C=0.003 baseline = 0.7780) ###
+[06:12:17] INFO loaded dict run07_dict_K6000_P6_N1000000.npz
+[06:12:17] INFO [START] GPU encode train+test K=6000 P=6
+[06:13:07] INFO [END]   GPU encode train+test K=6000 P=6  (49.4s)
+[06:14:36] INFO   P=6 K=6000 C=0.0005 val=0.7706  (Δ vs C=0.003 baseline -0.0074, 37.4s)
+[06:15:17] INFO   P=6 K=6000 C=0.001 val=0.7752  (Δ vs C=0.003 baseline -0.0028, 41.1s)
+[06:16:08] INFO   P=6 K=6000 C=0.002 val=0.7754  (Δ vs C=0.003 baseline -0.0026, 50.8s)
+[06:16:08] INFO   no improvement; all new C values worse than baseline
+[06:16:09] INFO 
+### P=6 K=8000  (run_07 C=0.003 baseline = 0.7858) ###
+[06:16:09] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[06:16:09] INFO [START] GPU encode train+test K=8000 P=6
+[06:17:13] INFO [END]   GPU encode train+test K=8000 P=6  (64.1s)
+[06:19:07] INFO   P=6 K=8000 C=0.0005 val=0.7806  (Δ vs C=0.003 baseline -0.0052, 54.2s)
+[06:20:14] INFO   P=6 K=8000 C=0.001 val=0.7848  (Δ vs C=0.003 baseline -0.0010, 66.2s)
+[06:21:29] INFO   P=6 K=8000 C=0.002 val=0.7840  (Δ vs C=0.003 baseline -0.0018, 74.9s)
+[06:21:29] INFO   no improvement; all new C values worse than baseline
+[06:21:30] INFO 
+### P=7 K=1600  (run_07 C=0.003 baseline = 0.7702) ###
+[06:21:30] INFO loaded dict run07_dict_K1600_P7_N1000000.npz
+[06:21:30] INFO [START] GPU encode train+test K=1600 P=7
+[06:22:11] INFO [END]   GPU encode train+test K=1600 P=7  (41.2s)
+[06:22:24] INFO   P=7 K=1600 C=0.0005 val=0.7448  (Δ vs C=0.003 baseline -0.0254, 5.7s)
+[06:22:30] INFO   P=7 K=1600 C=0.001 val=0.7560  (Δ vs C=0.003 baseline -0.0142, 6.8s)
+[06:22:38] INFO   P=7 K=1600 C=0.002 val=0.7640  (Δ vs C=0.003 baseline -0.0062, 7.7s)
+[06:22:38] INFO   no improvement; all new C values worse than baseline
+[06:22:38] INFO 
+### P=7 K=4000  (run_07 C=0.003 baseline = 0.7824) ###
+[06:22:39] INFO loaded dict run07_dict_K4000_P7_N1000000.npz
+[06:22:39] INFO [START] GPU encode train+test K=4000 P=7
+[06:23:32] INFO [END]   GPU encode train+test K=4000 P=7  (53.9s)
+[06:24:15] INFO   P=7 K=4000 C=0.0005 val=0.7690  (Δ vs C=0.003 baseline -0.0134, 20.3s)
+[06:24:39] INFO   P=7 K=4000 C=0.001 val=0.7774  (Δ vs C=0.003 baseline -0.0050, 24.3s)
+[06:25:09] INFO   P=7 K=4000 C=0.002 val=0.7814  (Δ vs C=0.003 baseline -0.0010, 29.7s)
+[06:25:09] INFO   no improvement; all new C values worse than baseline
+[06:25:10] INFO 
+### P=7 K=6000  (run_07 C=0.003 baseline = 0.7810) ###
+[06:25:10] INFO loaded dict run07_dict_K6000_P7_N1000000.npz
+[06:25:10] INFO [START] GPU encode train+test K=6000 P=7
+[06:26:03] INFO [END]   GPU encode train+test K=6000 P=7  (52.9s)
+[06:27:29] INFO   P=7 K=6000 C=0.0005 val=0.7790  (Δ vs C=0.003 baseline -0.0020, 33.0s)
+[06:28:07] INFO   P=7 K=6000 C=0.001 val=0.7820  (Δ vs C=0.003 baseline +0.0010 ⬆, 38.0s)
+[06:28:51] INFO   P=7 K=6000 C=0.002 val=0.7876  (Δ vs C=0.003 baseline +0.0066 ⬆, 43.9s)
+[06:28:51] INFO   🎯 NEW best P=7 K=6000: C=0.002 val=0.7876 (beats baseline 0.7810)
+[06:28:51] INFO [START] refit full P=7 K=6000 C=0.002
+[06:30:35] INFO [END]   refit full P=7 K=6000 C=0.002  (103.8s)
+[06:30:35] INFO   wrote sub_run08_P7_K6000_C0.002.csv
+[06:30:36] INFO 
+### P=7 K=8000  (run_07 C=0.003 baseline = 0.7752) ###
+[06:30:36] INFO loaded dict run07_dict_K8000_P7_N1000000.npz
+[06:30:36] INFO [START] GPU encode train+test K=8000 P=7
+[06:31:44] INFO [END]   GPU encode train+test K=8000 P=7  (68.2s)
+[06:33:11] INFO   P=7 K=8000 C=0.0005 val=0.7776  (Δ vs C=0.003 baseline +0.0024 ⬆, 49.9s)
+[06:34:09] INFO   P=7 K=8000 C=0.001 val=0.7798  (Δ vs C=0.003 baseline +0.0046 ⬆, 57.8s)
+[06:35:20] INFO   P=7 K=8000 C=0.002 val=0.7764  (Δ vs C=0.003 baseline +0.0012 ⬆, 71.3s)
+[06:35:20] INFO   🎯 NEW best P=7 K=8000: C=0.001 val=0.7798 (beats baseline 0.7752)
+[06:35:20] INFO [START] refit full P=7 K=8000 C=0.001
+[06:37:21] INFO [END]   refit full P=7 K=8000 C=0.001  (120.2s)
+[06:37:21] INFO   wrote sub_run08_P7_K8000_C0.001.csv
+[06:37:21] INFO 
+### P=8 K=2400  (run_07 C=0.003 baseline = 0.7742) ###
+[06:37:22] INFO loaded dict run07_dict_K2400_P8_N1000000.npz
+[06:37:22] INFO [START] GPU encode train+test K=2400 P=8
+[06:38:12] INFO [END]   GPU encode train+test K=2400 P=8  (50.9s)
+[06:38:41] INFO   P=8 K=2400 C=0.0005 val=0.7544  (Δ vs C=0.003 baseline -0.0198, 9.5s)
+[06:38:52] INFO   P=8 K=2400 C=0.001 val=0.7626  (Δ vs C=0.003 baseline -0.0116, 10.7s)
+[06:39:06] INFO   P=8 K=2400 C=0.002 val=0.7714  (Δ vs C=0.003 baseline -0.0028, 13.5s)
+[06:39:06] INFO   no improvement; all new C values worse than baseline
+[06:39:06] INFO 
+### P=8 K=3200  (run_07 C=0.003 baseline = 0.7816) ###
+[06:39:07] INFO loaded dict run07_dict_K3200_P8_N1000000.npz
+[06:39:07] INFO [START] GPU encode train+test K=3200 P=8
+[06:40:03] INFO [END]   GPU encode train+test K=3200 P=8  (56.5s)
+[06:40:32] INFO   P=8 K=3200 C=0.0005 val=0.7670  (Δ vs C=0.003 baseline -0.0146, 13.8s)
+[06:40:48] INFO   P=8 K=3200 C=0.001 val=0.7746  (Δ vs C=0.003 baseline -0.0070, 16.5s)
+[06:41:09] INFO   P=8 K=3200 C=0.002 val=0.7784  (Δ vs C=0.003 baseline -0.0032, 21.0s)
+[06:41:09] INFO   no improvement; all new C values worse than baseline
+[06:41:10] INFO 
+### P=8 K=4000  (run_07 C=0.003 baseline = 0.7702) ###
+[06:41:10] INFO loaded dict run07_dict_K4000_P8_N1000000.npz
+[06:41:10] INFO [START] GPU encode train+test K=4000 P=8
+[06:41:57] INFO [END]   GPU encode train+test K=4000 P=8  (46.8s)
+[06:42:43] INFO   P=8 K=4000 C=0.0005 val=0.7654  (Δ vs C=0.003 baseline -0.0048, 20.3s)
+[06:43:09] INFO   P=8 K=4000 C=0.001 val=0.7708  (Δ vs C=0.003 baseline +0.0006 ⬆, 26.0s)
+[06:43:37] INFO   P=8 K=4000 C=0.002 val=0.7736  (Δ vs C=0.003 baseline +0.0034 ⬆, 27.6s)
+[06:43:37] INFO   🎯 NEW best P=8 K=4000: C=0.002 val=0.7736 (beats baseline 0.7702)
+[06:43:37] INFO [START] refit full P=8 K=4000 C=0.002
+[06:44:53] INFO [END]   refit full P=8 K=4000 C=0.002  (75.9s)
+[06:44:53] INFO   wrote sub_run08_P8_K4000_C0.002.csv
+[06:44:53] INFO 
+### P=8 K=6000  (run_07 C=0.003 baseline = 0.7750) ###
+[06:44:53] INFO loaded dict run07_dict_K6000_P8_N1000000.npz
+[06:44:53] INFO [START] GPU encode train+test K=6000 P=8
+[06:46:01] INFO [END]   GPU encode train+test K=6000 P=8  (67.1s)
+[06:47:01] INFO   P=8 K=6000 C=0.0005 val=0.7756  (Δ vs C=0.003 baseline +0.0006 ⬆, 35.1s)
+[06:47:43] INFO   P=8 K=6000 C=0.001 val=0.7786  (Δ vs C=0.003 baseline +0.0036 ⬆, 41.3s)
+[06:48:25] INFO   P=8 K=6000 C=0.002 val=0.7752  (Δ vs C=0.003 baseline +0.0002 ⬆, 42.7s)
+[06:48:25] INFO   🎯 NEW best P=8 K=6000: C=0.001 val=0.7786 (beats baseline 0.7750)
+[06:48:25] INFO [START] refit full P=8 K=6000 C=0.001
+[06:49:45] INFO [END]   refit full P=8 K=6000 C=0.001  (79.6s)
+[06:49:45] INFO   wrote sub_run08_P8_K6000_C0.001.csv
+[06:49:46] INFO 
+### P=8 K=8000  (run_07 C=0.003 baseline = 0.7502) ###
+[06:49:46] INFO loaded dict run07_dict_K8000_P8_N1000000.npz
+[06:49:46] INFO [START] GPU encode train+test K=8000 P=8
+[06:50:55] INFO [END]   GPU encode train+test K=8000 P=8  (69.7s)
+[06:52:37] INFO   P=8 K=8000 C=0.0005 val=0.7708  (Δ vs C=0.003 baseline +0.0206 ⬆, 49.5s)
+[06:53:32] INFO   P=8 K=8000 C=0.001 val=0.7632  (Δ vs C=0.003 baseline +0.0130 ⬆, 54.7s)
+[06:54:45] INFO   P=8 K=8000 C=0.002 val=0.7542  (Δ vs C=0.003 baseline +0.0040 ⬆, 73.0s)
+[06:54:45] INFO   🎯 NEW best P=8 K=8000: C=0.0005 val=0.7708 (beats baseline 0.7502)
+[06:54:45] INFO [START] refit full P=8 K=8000 C=0.0005
+[06:56:41] INFO [END]   refit full P=8 K=8000 C=0.0005  (116.0s)
+[06:56:41] INFO   wrote sub_run08_P8_K8000_C0.0005.csv
+[06:56:42] INFO 
+=== Phase B complete ===
+[06:56:42] INFO Improvements over run_07 C=0.003 baselines: 5 / 16
+[06:56:42] INFO   P=7 K=6000 C=0.002 val=0.7876 (++0.0066 vs 0.7810)
+[06:56:42] INFO   P=7 K=8000 C=0.001 val=0.7798 (++0.0046 vs 0.7752)
+[06:56:42] INFO   P=8 K=6000 C=0.001 val=0.7786 (++0.0036 vs 0.7750)
+[06:56:42] INFO   P=8 K=4000 C=0.002 val=0.7736 (++0.0034 vs 0.7702)
+[06:56:42] INFO   P=8 K=8000 C=0.0005 val=0.7708 (++0.0206 vs 0.7502)
+[06:56:42] INFO === run_08_phase_b done ===

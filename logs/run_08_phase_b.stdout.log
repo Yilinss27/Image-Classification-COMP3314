@@ -1,0 +1,466 @@
+[05:55:27] INFO === run_08_phase_b started ===
+[05:55:27] INFO 16 (P,K) targets x 3 C = 48 fits
+[05:55:27] INFO [START] load train/test
+[05:55:27] INFO [END]   load train/test  (0.1s)
+[05:55:27] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[05:55:27] INFO train sub 45000  val 5000
+[05:55:27] INFO 
+### P=4 K=8000  (run_07 C=0.003 baseline = 0.7686) ###
+[05:55:27] INFO loaded dict run07_dict_K8000_P4_N1000000.npz
+[05:55:27] INFO [START] GPU encode train+test K=8000 P=4
+[05:56:16] INFO [END]   GPU encode train+test K=8000 P=4  (49.1s)
+[2026-04-12 05:57:02.270] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:57:27.788] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:57:32.741] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:57:49.817] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:57:53.146] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[05:57:53] INFO   P=4 K=8000 C=0.0005 val=0.7552  (Δ vs C=0.003 baseline -0.0134, 62.5s)
+[2026-04-12 05:58:03.694] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:58:09.192] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:58:20.051] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 05:58:27.980] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:58:41.632] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:58:48.749] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:58:53.149] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:58:57.390] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[05:58:57] INFO   P=4 K=8000 C=0.001 val=0.7598  (Δ vs C=0.003 baseline -0.0088, 63.9s)
+[2026-04-12 05:59:08.140] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:59:32.666] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 05:59:41.338] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:00:06.652] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:00:26] INFO   P=4 K=8000 C=0.002 val=0.7664  (Δ vs C=0.003 baseline -0.0022, 88.7s)
+[06:00:26] INFO   no improvement; all new C values worse than baseline
+[06:00:27] INFO 
+### P=5 K=4000  (run_07 C=0.003 baseline = 0.7728) ###
+[06:00:27] INFO loaded dict run07_dict_K4000_P5_N1000000.npz
+[06:00:27] INFO [START] GPU encode train+test K=4000 P=5
+[06:01:08] INFO [END]   GPU encode train+test K=4000 P=5  (40.5s)
+[2026-04-12 06:01:42.158] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:01:44.948] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:01:46.816] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:01:49.820] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:01:53.683] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:01:55.383] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:01:55] INFO   P=5 K=4000 C=0.0005 val=0.7540  (Δ vs C=0.003 baseline -0.0188, 21.5s)
+[2026-04-12 06:02:13.933] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:02:15.386] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:02:20] INFO   P=5 K=4000 C=0.001 val=0.7616  (Δ vs C=0.003 baseline -0.0112, 24.4s)
+[2026-04-12 06:02:35.134] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:02:39.034] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:02:54] INFO   P=5 K=4000 C=0.002 val=0.7712  (Δ vs C=0.003 baseline -0.0016, 34.2s)
+[06:02:54] INFO   no improvement; all new C values worse than baseline
+[06:02:54] INFO 
+### P=5 K=8000  (run_07 C=0.003 baseline = 0.7794) ###
+[06:02:55] INFO loaded dict run07_dict_K8000_P5_N1000000.npz
+[06:02:55] INFO [START] GPU encode train+test K=8000 P=5
+[06:03:53] INFO [END]   GPU encode train+test K=8000 P=5  (58.2s)
+[2026-04-12 06:04:48.261] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:04:58.200] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:05:02.957] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:05:07.874] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:05:12.398] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:05:17.601] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:05:22.770] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:05:26.530] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:05:30] INFO   P=5 K=8000 C=0.0005 val=0.7684  (Δ vs C=0.003 baseline -0.0110, 49.6s)
+[2026-04-12 06:05:38.486] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:05:52.133] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:05:58.739] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:06:05.811] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:06:20.164] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:06:23.988] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:06:35] INFO   P=5 K=8000 C=0.001 val=0.7746  (Δ vs C=0.003 baseline -0.0048, 65.1s)
+[2026-04-12 06:06:42.979] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:06:56.122] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:07:05.968] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:07:15.196] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:07:25.393] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:07:53] INFO   P=5 K=8000 C=0.002 val=0.7768  (Δ vs C=0.003 baseline -0.0026, 77.9s)
+[06:07:53] INFO   no improvement; all new C values worse than baseline
+[06:07:54] INFO 
+### P=6 K=2400  (run_07 C=0.003 baseline = 0.7752) ###
+[06:07:54] INFO loaded dict run07_dict_K2400_P6_N1000000.npz
+[06:07:54] INFO [START] GPU encode train+test K=2400 P=6
+[06:08:35] INFO [END]   GPU encode train+test K=2400 P=6  (40.9s)
+[2026-04-12 06:08:59.435] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:09:01.320] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:02.176] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:03.221] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:04.027] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:05.311] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:06.173] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:09:06] INFO   P=6 K=2400 C=0.0005 val=0.7496  (Δ vs C=0.003 baseline -0.0256, 11.6s)
+[2026-04-12 06:09:08.139] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:09.165] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:13.634] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:15.955] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:18.396] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:09:19] INFO   P=6 K=2400 C=0.001 val=0.7608  (Δ vs C=0.003 baseline -0.0144, 13.2s)
+[2026-04-12 06:09:22.617] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:25.674] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:27.158] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:31.282] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:32.676] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:09:35.721] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:09:35] INFO   P=6 K=2400 C=0.002 val=0.7730  (Δ vs C=0.003 baseline -0.0022, 16.3s)
+[06:09:35] INFO   no improvement; all new C values worse than baseline
+[06:09:36] INFO 
+### P=6 K=4000  (run_07 C=0.003 baseline = 0.7786) ###
+[06:09:36] INFO loaded dict run07_dict_K4000_P6_N1000000.npz
+[06:09:36] INFO [START] GPU encode train+test K=4000 P=6
+[06:10:26] INFO [END]   GPU encode train+test K=4000 P=6  (49.6s)
+[2026-04-12 06:11:06.272] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:11:08.915] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:11:10.403] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:11:12.257] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:11:14.676] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:11:16.394] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:11:20.436] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:11:22] INFO   P=6 K=4000 C=0.0005 val=0.7614  (Δ vs C=0.003 baseline -0.0172, 21.4s)
+[2026-04-12 06:11:27.868] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:11:40.065] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:11:46.811] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:11:47] INFO   P=6 K=4000 C=0.001 val=0.7694  (Δ vs C=0.003 baseline -0.0092, 24.8s)
+[2026-04-12 06:11:53.497] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:12:02.907] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:12:05.448] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:12:10.182] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:12:15.003] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:12:17.275] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:12:17] INFO   P=6 K=4000 C=0.002 val=0.7780  (Δ vs C=0.003 baseline -0.0006, 30.3s)
+[06:12:17] INFO   no improvement; all new C values worse than baseline
+[06:12:17] INFO 
+### P=6 K=6000  (run_07 C=0.003 baseline = 0.7780) ###
+[06:12:17] INFO loaded dict run07_dict_K6000_P6_N1000000.npz
+[06:12:17] INFO [START] GPU encode train+test K=6000 P=6
+[06:13:07] INFO [END]   GPU encode train+test K=6000 P=6  (49.4s)
+[2026-04-12 06:14:05.383] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:08.054] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:12.926] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:16.087] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:19.818] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:25.830] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:29.280] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:33.334] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:14:36] INFO   P=6 K=6000 C=0.0005 val=0.7706  (Δ vs C=0.003 baseline -0.0074, 37.4s)
+[2026-04-12 06:14:42.660] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:44.475] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:50.522] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:55.365] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:14:58.942] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:15:17] INFO   P=6 K=6000 C=0.001 val=0.7752  (Δ vs C=0.003 baseline -0.0028, 41.1s)
+[2026-04-12 06:15:40.041] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:15:46.010] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:15:52.135] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:16:01.296] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:16:04.226] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:16:08.505] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:16:08] INFO   P=6 K=6000 C=0.002 val=0.7754  (Δ vs C=0.003 baseline -0.0026, 50.8s)
+[06:16:08] INFO   no improvement; all new C values worse than baseline
+[06:16:09] INFO 
+### P=6 K=8000  (run_07 C=0.003 baseline = 0.7858) ###
+[06:16:09] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[06:16:09] INFO [START] GPU encode train+test K=8000 P=6
+[06:17:13] INFO [END]   GPU encode train+test K=8000 P=6  (64.1s)
+[2026-04-12 06:18:37.021] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:18:51.600] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:18:55.843] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:19:03.218] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:19:07] INFO   P=6 K=8000 C=0.0005 val=0.7806  (Δ vs C=0.003 baseline -0.0052, 54.2s)
+[2026-04-12 06:19:18.719] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:19:31.684] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:19:36.536] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:19:50.756] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:19:57.396] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:20:02.011] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:20:13.646] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:20:14] INFO   P=6 K=8000 C=0.001 val=0.7848  (Δ vs C=0.003 baseline -0.0010, 66.2s)
+[2026-04-12 06:20:56.495] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:21:03.384] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:21:23.931] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:21:29] INFO   P=6 K=8000 C=0.002 val=0.7840  (Δ vs C=0.003 baseline -0.0018, 74.9s)
+[06:21:29] INFO   no improvement; all new C values worse than baseline
+[06:21:30] INFO 
+### P=7 K=1600  (run_07 C=0.003 baseline = 0.7702) ###
+[06:21:30] INFO loaded dict run07_dict_K1600_P7_N1000000.npz
+[06:21:30] INFO [START] GPU encode train+test K=1600 P=7
+[06:22:11] INFO [END]   GPU encode train+test K=1600 P=7  (41.2s)
+[2026-04-12 06:22:19.918] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:22:21.509] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:22:23.684] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:22:24] INFO   P=7 K=1600 C=0.0005 val=0.7448  (Δ vs C=0.003 baseline -0.0254, 5.7s)
+[2026-04-12 06:22:29.217] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:22:30.924] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:22:30] INFO   P=7 K=1600 C=0.001 val=0.7560  (Δ vs C=0.003 baseline -0.0142, 6.8s)
+[2026-04-12 06:22:37.273] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:22:38.637] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:22:38] INFO   P=7 K=1600 C=0.002 val=0.7640  (Δ vs C=0.003 baseline -0.0062, 7.7s)
+[06:22:38] INFO   no improvement; all new C values worse than baseline
+[06:22:38] INFO 
+### P=7 K=4000  (run_07 C=0.003 baseline = 0.7824) ###
+[06:22:39] INFO loaded dict run07_dict_K4000_P7_N1000000.npz
+[06:22:39] INFO [START] GPU encode train+test K=4000 P=7
+[06:23:32] INFO [END]   GPU encode train+test K=4000 P=7  (53.9s)
+[2026-04-12 06:23:57.212] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:23:58.833] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:02.688] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:11.179] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:13.896] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:24:15] INFO   P=7 K=4000 C=0.0005 val=0.7690  (Δ vs C=0.003 baseline -0.0134, 20.3s)
+[2026-04-12 06:24:20.073] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:24.603] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:26.992] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:35.712] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:38.298] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:39.690] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:24:39] INFO   P=7 K=4000 C=0.001 val=0.7774  (Δ vs C=0.003 baseline -0.0050, 24.3s)
+[2026-04-12 06:24:54.295] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:24:57.245] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:25:05.182] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:25:07.731] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:25:09.583] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:25:09] INFO   P=7 K=4000 C=0.002 val=0.7814  (Δ vs C=0.003 baseline -0.0010, 29.7s)
+[06:25:09] INFO   no improvement; all new C values worse than baseline
+[06:25:10] INFO 
+### P=7 K=6000  (run_07 C=0.003 baseline = 0.7810) ###
+[06:25:10] INFO loaded dict run07_dict_K6000_P7_N1000000.npz
+[06:25:10] INFO [START] GPU encode train+test K=6000 P=7
+[06:26:03] INFO [END]   GPU encode train+test K=6000 P=7  (52.9s)
+[2026-04-12 06:27:01.904] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:06.980] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:10.114] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:13.830] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:18.092] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:20.511] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:24.438] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:29.423] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:27:29] INFO   P=7 K=6000 C=0.0005 val=0.7790  (Δ vs C=0.003 baseline -0.0020, 33.0s)
+[2026-04-12 06:27:35.045] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:55.253] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:27:58.225] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:28:00.151] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:28:03.799] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:28:07] INFO   P=7 K=6000 C=0.001 val=0.7820  (Δ vs C=0.003 baseline +0.0010 ⬆, 38.0s)
+[2026-04-12 06:28:32.856] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:28:37.707] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:28:44.951] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:28:48.550] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:28:51] INFO   P=7 K=6000 C=0.002 val=0.7876  (Δ vs C=0.003 baseline +0.0066 ⬆, 43.9s)
+[06:28:51] INFO   🎯 NEW best P=7 K=6000: C=0.002 val=0.7876 (beats baseline 0.7810)
+[06:28:51] INFO [START] refit full P=7 K=6000 C=0.002
+[2026-04-12 06:29:52.502] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:29:57.907] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:30:04.413] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:30:10.493] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:30:16.955] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:30:23.802] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:30:28.113] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:30:31.444] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:30:34.966] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[06:30:35] INFO [END]   refit full P=7 K=6000 C=0.002  (103.8s)
+[06:30:35] INFO   wrote sub_run08_P7_K6000_C0.002.csv
+[06:30:36] INFO 
+### P=7 K=8000  (run_07 C=0.003 baseline = 0.7752) ###
+[06:30:36] INFO loaded dict run07_dict_K8000_P7_N1000000.npz
+[06:30:36] INFO [START] GPU encode train+test K=8000 P=7
+[06:31:44] INFO [END]   GPU encode train+test K=8000 P=7  (68.2s)
+[2026-04-12 06:32:30.146] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:32:34.419] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:33:02.189] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:33:06.042] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:33:11] INFO   P=7 K=8000 C=0.0005 val=0.7776  (Δ vs C=0.003 baseline +0.0024 ⬆, 49.9s)
+[2026-04-12 06:33:27.627] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:33:34.017] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:33:53.520] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:34:04.418] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:34:09.333] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:34:09] INFO   P=7 K=8000 C=0.001 val=0.7798  (Δ vs C=0.003 baseline +0.0046 ⬆, 57.8s)
+[2026-04-12 06:34:20.967] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:34:28.127] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:34:36.100] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:34:59.078] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:35:04.744] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:35:20] INFO   P=7 K=8000 C=0.002 val=0.7764  (Δ vs C=0.003 baseline +0.0012 ⬆, 71.3s)
+[06:35:20] INFO   🎯 NEW best P=7 K=8000: C=0.001 val=0.7798 (beats baseline 0.7752)
+[06:35:20] INFO [START] refit full P=7 K=8000 C=0.001
+[2026-04-12 06:36:14.516] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:36:20.750] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:36:29.833] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:36:37.351] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:36:43.471] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:36:54.033] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:37:02.354] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:37:09.037] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:37:16.162] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:37:20.516] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:37:21] INFO [END]   refit full P=7 K=8000 C=0.001  (120.2s)
+[06:37:21] INFO   wrote sub_run08_P7_K8000_C0.001.csv
+[06:37:21] INFO 
+### P=8 K=2400  (run_07 C=0.003 baseline = 0.7742) ###
+[06:37:22] INFO loaded dict run07_dict_K2400_P8_N1000000.npz
+[06:37:22] INFO [START] GPU encode train+test K=2400 P=8
+[06:38:12] INFO [END]   GPU encode train+test K=2400 P=8  (50.9s)
+[2026-04-12 06:38:33.744] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:34.343] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:35.385] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:36.493] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:41.036] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:41.911] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:38:41] INFO   P=8 K=2400 C=0.0005 val=0.7544  (Δ vs C=0.003 baseline -0.0198, 9.5s)
+[2026-04-12 06:38:44.297] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:45.057] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:46.166] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:47.620] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:48.926] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:50.911] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:51.841] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:38:52] INFO   P=8 K=2400 C=0.001 val=0.7626  (Δ vs C=0.003 baseline -0.0116, 10.7s)
+[2026-04-12 06:38:55.040] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:38:57.337] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:39:00.499] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:39:02.823] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:39:03.930] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:39:05.043] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:39:06] INFO   P=8 K=2400 C=0.002 val=0.7714  (Δ vs C=0.003 baseline -0.0028, 13.5s)
+[06:39:06] INFO   no improvement; all new C values worse than baseline
+[06:39:06] INFO 
+### P=8 K=3200  (run_07 C=0.003 baseline = 0.7816) ###
+[06:39:07] INFO loaded dict run07_dict_K3200_P8_N1000000.npz
+[06:39:07] INFO [START] GPU encode train+test K=3200 P=8
+[06:40:03] INFO [END]   GPU encode train+test K=3200 P=8  (56.5s)
+[2026-04-12 06:40:21.436] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:22.749] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:25.086] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:26.215] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:29.291] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:30.831] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:40:32] INFO   P=8 K=3200 C=0.0005 val=0.7670  (Δ vs C=0.003 baseline -0.0146, 13.8s)
+[2026-04-12 06:40:34.721] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:35.741] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:37.643] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:44.989] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:48.672] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:40:48] INFO   P=8 K=3200 C=0.001 val=0.7746  (Δ vs C=0.003 baseline -0.0070, 16.5s)
+[2026-04-12 06:40:51.900] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:40:58.296] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:41:04.113] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:41:07.834] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:41:09] INFO   P=8 K=3200 C=0.002 val=0.7784  (Δ vs C=0.003 baseline -0.0032, 21.0s)
+[06:41:09] INFO   no improvement; all new C values worse than baseline
+[06:41:10] INFO 
+### P=8 K=4000  (run_07 C=0.003 baseline = 0.7702) ###
+[06:41:10] INFO loaded dict run07_dict_K4000_P8_N1000000.npz
+[06:41:10] INFO [START] GPU encode train+test K=4000 P=8
+[06:41:57] INFO [END]   GPU encode train+test K=4000 P=8  (46.8s)
+[2026-04-12 06:42:28.489] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:42:36.925] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:42:41.740] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:42:43.419] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:42:43] INFO   P=8 K=4000 C=0.0005 val=0.7654  (Δ vs C=0.003 baseline -0.0048, 20.3s)
+[2026-04-12 06:42:55.991] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:42:58.348] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:43:03.302] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:43:09] INFO   P=8 K=4000 C=0.001 val=0.7708  (Δ vs C=0.003 baseline +0.0006 ⬆, 26.0s)
+[2026-04-12 06:43:18.571] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:43:21.468] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:43:23.933] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:43:26.723] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:43:31.448] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:43:35.253] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:43:37] INFO   P=8 K=4000 C=0.002 val=0.7736  (Δ vs C=0.003 baseline +0.0034 ⬆, 27.6s)
+[06:43:37] INFO   🎯 NEW best P=8 K=4000: C=0.002 val=0.7736 (beats baseline 0.7702)
+[06:43:37] INFO [START] refit full P=8 K=4000 C=0.002
+[2026-04-12 06:44:20.778] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:44:23.314] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:44:27.140] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:44:30.004] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:44:33.265] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:44:44.313] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:44:47.728] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:44:50.627] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:44:52.971] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[06:44:53] INFO [END]   refit full P=8 K=4000 C=0.002  (75.9s)
+[06:44:53] INFO   wrote sub_run08_P8_K4000_C0.002.csv
+[06:44:53] INFO 
+### P=8 K=6000  (run_07 C=0.003 baseline = 0.7750) ###
+[06:44:53] INFO loaded dict run07_dict_K6000_P8_N1000000.npz
+[06:44:53] INFO [START] GPU encode train+test K=6000 P=8
+[06:46:01] INFO [END]   GPU encode train+test K=6000 P=8  (67.1s)
+[2026-04-12 06:46:31.054] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:46:47.137] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:46:51.112] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:47:01] INFO   P=8 K=6000 C=0.0005 val=0.7756  (Δ vs C=0.003 baseline +0.0006 ⬆, 35.1s)
+[2026-04-12 06:47:11.300] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:47:15.787] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:47:21.107] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:47:33.904] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:47:36.585] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:47:40.032] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:47:43] INFO   P=8 K=6000 C=0.001 val=0.7786  (Δ vs C=0.003 baseline +0.0036 ⬆, 41.3s)
+[2026-04-12 06:47:51.238] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:48:00.060] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:48:05.312] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:48:14.448] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:48:18.617] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:48:25.337] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:48:25] INFO   P=8 K=6000 C=0.002 val=0.7752  (Δ vs C=0.003 baseline +0.0002 ⬆, 42.7s)
+[06:48:25] INFO   🎯 NEW best P=8 K=6000: C=0.001 val=0.7786 (beats baseline 0.7750)
+[06:48:25] INFO [START] refit full P=8 K=6000 C=0.001
+[2026-04-12 06:49:04.073] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:49:07.863] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:49:12.242] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:49:16.781] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:49:21.809] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:49:26.472] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:49:33.764] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:49:37.486] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:49:41.447] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:49:44.999] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[06:49:45] INFO [END]   refit full P=8 K=6000 C=0.001  (79.6s)
+[06:49:45] INFO   wrote sub_run08_P8_K6000_C0.001.csv
+[06:49:46] INFO 
+### P=8 K=8000  (run_07 C=0.003 baseline = 0.7502) ###
+[06:49:46] INFO loaded dict run07_dict_K8000_P8_N1000000.npz
+[06:49:46] INFO [START] GPU encode train+test K=8000 P=8
+[06:50:55] INFO [END]   GPU encode train+test K=8000 P=8  (69.7s)
+[2026-04-12 06:52:17.382] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:52:21.090] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:52:37] INFO   P=8 K=8000 C=0.0005 val=0.7708  (Δ vs C=0.003 baseline +0.0206 ⬆, 49.5s)
+[2026-04-12 06:52:46.410] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:53:01.170] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:53:11.362] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:53:17.779] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:53:27.951] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:53:31.625] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:53:32] INFO   P=8 K=8000 C=0.001 val=0.7632  (Δ vs C=0.003 baseline +0.0130 ⬆, 54.7s)
+[2026-04-12 06:53:43.417] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:53:51.285] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:54:08.010] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:54:27.075] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:54:33.321] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:54:39.389] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 06:54:44.708] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[06:54:45] INFO   P=8 K=8000 C=0.002 val=0.7542  (Δ vs C=0.003 baseline +0.0040 ⬆, 73.0s)
+[06:54:45] INFO   🎯 NEW best P=8 K=8000: C=0.0005 val=0.7708 (beats baseline 0.7502)
+[06:54:45] INFO [START] refit full P=8 K=8000 C=0.0005
+[2026-04-12 06:55:40.767] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:55:47.292] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:55:55.103] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:56:01.447] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:56:10.149] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:56:16.151] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:56:21.648] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:56:26.138] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:56:33.547] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 06:56:40.678] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[06:56:41] INFO [END]   refit full P=8 K=8000 C=0.0005  (116.0s)
+[06:56:41] INFO   wrote sub_run08_P8_K8000_C0.0005.csv
+[06:56:42] INFO 
+=== Phase B complete ===
+[06:56:42] INFO Improvements over run_07 C=0.003 baselines: 5 / 16
+[06:56:42] INFO   P=7 K=6000 C=0.002 val=0.7876 (++0.0066 vs 0.7810)
+[06:56:42] INFO   P=7 K=8000 C=0.001 val=0.7798 (++0.0046 vs 0.7752)
+[06:56:42] INFO   P=8 K=6000 C=0.001 val=0.7786 (++0.0036 vs 0.7750)
+[06:56:42] INFO   P=8 K=4000 C=0.002 val=0.7736 (++0.0034 vs 0.7702)
+[06:56:42] INFO   P=8 K=8000 C=0.0005 val=0.7708 (++0.0206 vs 0.7502)
+[06:56:42] INFO === run_08_phase_b done ===
