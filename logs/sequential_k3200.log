@@ -1,3 +1,4 @@
 [2026-04-11 13:42:20] waiting for current run_06 PID 190199 ...
 [2026-04-11 15:39:33] PID 190199 gone; starting sequential C sweep
 [2026-04-11 15:39:33] >>> START C=0.003  log=logs/run_06_k3200_C0.003.stdout.log
+[cancelled by user after K=3200 C=0.01 public=0.77150 < K=1600 SOTA 0.77400]
