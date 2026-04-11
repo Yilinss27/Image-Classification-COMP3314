@@ -1,6 +1,8 @@
 [    0.0s] loading K=3200 P=6 features
-[    2.6s] X_tr (50000, 12800)  X_te (10000, 12800)  y (50000,)
-[    2.6s] val split: train 45000  val 5000
-[    2.6s] StandardScaler fit on split train
-[   14.8s] scaled: split train (45000, 12800)  val (5000, 12800)
-[   14.8s] [START] LinearSVC C=0.001
+[    2.1s] X_tr (50000, 12800) float32 (2.38 GB)
+[    2.1s] StandardScaler fit_transform on train (drop raw immediately)
+[    8.5s] X_tr_s (50000, 12800) float32
+[    8.5s] loading test features
+[    9.1s] X_te_s (10000, 12800)
+[    9.1s] loading y and names
+[    9.1s] LinearSVC fit C=0.01 (full 50k)
