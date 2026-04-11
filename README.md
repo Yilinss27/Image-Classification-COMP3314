@@ -30,6 +30,8 @@ Five progressively stronger pipelines, all built from `scikit-learn` / `scikit-i
 | `run_03_coates.py` | Coates & Ng (2011) single-layer feature learning: random 6×6 patches → contrast normalize → ZCA whiten → MiniBatchKMeans(K=800) → triangle encoding → 2×2 sum pool (3200 dims) | LinearSVC | ~0.73 |
 | `run_04_coates_sweep.py` | Coates pipeline, sweep over `K ∈ {400, 800, 1600}`, `patch ∈ {6, 8}`, `C ∈ {1e-3 … 3e-1}` (CPU) | LinearSVC | up to ~0.75 |
 | `run_05_gpu_coates.py` | Same sweep extended to `K ∈ {1600, 3200}`, GPU-accelerated patch encoding via `cupy` | LinearSVC | up to ~0.77 |
+| `run_06_k3200.py` | Refit K=3200 P=6 C=0.01 on full 50k train (no val split) | LinearSVC | — (public 0.77150) |
+| `run_07_cuml_sweep.py` | Wide `P × K × C` grid on 5090: P∈{4..8}, K∈{400..8000}, C∈{0.003..0.03}, cupy encoding + **cuML GPU LinearSVC** (sklearn LinearSVC is pathologically slow on the Xeon 8470Q + OpenBLAS "Haswell" build) | cuML LinearSVC | in progress |
 
 The Coates-Ng single-layer unsupervised feature learning pipeline gives by far the best results and is the source of the final submission.
 
