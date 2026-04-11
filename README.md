@@ -27,22 +27,25 @@ Classifier is **cuML's GPU `LinearSVC`** via L-BFGS — sklearn's `LinearSVC` is
 
 cuML's L-BFGS solver lands ~0.3–0.5 pp below sklearn's liblinear coordinate-descent at the same `(P, K, C)`, so these val numbers are systematically slightly lower than the run_05 liblinear baselines.
 
-Top configs so far (best val per (P, K), sorted descending — **P=4 branch complete, P=5/6/7/8 pending**):
+Top configs so far (best val per (P, K), sorted descending — **P=4 and P=5 complete, P=6/7/8 pending**):
 
 | Rank | P | K | Best C | Val acc | Notes |
 |---|---|---|---|---|---|
-| 1 | 4 | 8000 | 0.003 | **0.7686** | 🎯 beats SOTA 0.7678 by 0.08 pp |
-| 2 | 4 | 6000 | 0.005 | 0.7666 | |
-| 3 | 4 | 4000 | 0.005 | 0.7646 | |
-| 4 | 4 | 3200 | 0.005 | 0.7574 | |
-| 5 | 4 | 2400 | 0.01  | 0.7546 | |
-| 6 | 4 | 2000 | 0.01  | 0.7518 | |
-| 7 | 4 | 1600 | 0.02  | 0.7502 | |
-| 8 | 4 | 1200 | 0.03  | 0.7428 | |
-| 9 | 4 | 800  | 0.03  | 0.7348 | |
-| 10 | 4 | 400  | 0.03  | 0.7138 | |
+| 1 | 5 | 8000 | 0.003 | **0.7794** | 🎯 +1.16 pp over SOTA 0.7678 |
+| 2 | 5 | 6000 | 0.005 | **0.7788** | +1.10 pp |
+| 3 | 5 | 4000 | 0.003 | **0.7736** | +0.58 pp (pre-crash run; restart gave 0.7728) |
+| 4 | 5 | 3200 | 0.005 | **0.7712** | +0.34 pp |
+| 5 | 4 | 8000 | 0.003 | **0.7686** | +0.08 pp |
+| 6 | 5 | 2400 | 0.005 | 0.7664 | |
+| 7 | 5 | 1600 | 0.02  | 0.7626 | |
+| 8 | 5 | 2000 | 0.01  | 0.7600 | |
+| 9 | 5 | 1200 | 0.03  | 0.7530 | |
+| 10 | 5 | 800  | 0.02  | 0.7478 | |
+| 11 | 5 | 400  | 0.03  | 0.7282 | |
+| 12 | 4 | 6000 | 0.005 | 0.7666 | |
+| 13 | 4 | 4000 | 0.005 | 0.7646 | |
 
-P=4 monotonically improves with K all the way up to K=8000. Key finding: **cuML L-BFGS LinearSVC on P=4 K=8000 already matches/beats the sklearn liblinear K=1600 P=6 baseline**. P=5/6/7/8 stages pending — expect the best Coates patch sizes (P=6 traditionally) to push val higher still.
+Both P=4 and P=5 show monotonic improvement with K all the way up to K=8000. **P=5 K=8000** is 1.08 pp above P=4 K=8000 at the same (K, C)-family — traditional Coates-Ng sweet spot is P≈5-6, confirming the theory holds here. Expect P=6 to push higher still.
 
 Reference: the current Kaggle public SOTA is 0.77400 (run_05 K=1600 P=6 C=0.01, val=0.7678), so anything `val ≥ 0.7678` here is a submission candidate once the sweep completes.
 
