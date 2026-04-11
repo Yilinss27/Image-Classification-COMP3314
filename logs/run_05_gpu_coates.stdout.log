@@ -53,3 +53,8 @@
 [09:59:49] INFO [END]   MiniBatchKMeans K=3200  (24.7s)
 [09:59:49] INFO saved dict gpu_dict_K3200_P6_N500000.npz
 [09:59:49] INFO [START] GPU encode train (50000 imgs, K=3200, P=6)
+[10:21:26] INFO [END]   GPU encode train (50000 imgs, K=3200, P=6)  (1297.0s)
+[10:21:48] INFO saved features gpu_feat_train_K3200_P6.npy shape (50000, 12800)
+[10:21:48] INFO [START] GPU encode test (10000 imgs, K=3200, P=6)
+[10:26:20] INFO [END]   GPU encode test (10000 imgs, K=3200, P=6)  (271.8s)
+[10:26:21] INFO saved features gpu_feat_test_K3200_P6.npy shape (10000, 12800)

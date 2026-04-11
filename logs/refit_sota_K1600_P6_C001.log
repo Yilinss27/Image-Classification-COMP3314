@@ -1,3 +1,5 @@
 [   0.0s] loading features K=1600 P=6
 [   9.3s] X_tr (50000, 6400) X_te (10000, 6400) y (50000,) names 10000
 [   9.3s] StandardScaler fit_transform train
+[  43.7s] StandardScaler transform test
+[  44.1s] LinearSVC fit C=0.01
