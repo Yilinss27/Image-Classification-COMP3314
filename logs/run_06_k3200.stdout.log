@@ -6,3 +6,7 @@
 [    9.1s] X_te_s (10000, 12800)
 [    9.1s] loading y and names
 [    9.1s] LinearSVC fit C=0.01 (full 50k)
+[ 7347.8s] fit done
+[ 7347.8s] predict test
+[ 7353.3s] preds (10000,)  dist [ 986  994  947  905  955 1050 1096 1032  992 1043]
+[ 7353.6s] wrote /home/yitongli/Courses/26spring/COMP3314/Assignment3/submissions/sub_sota_K3200_P6_C0.01.csv

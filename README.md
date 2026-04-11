@@ -17,6 +17,7 @@ Running log of every time a new best-so-far validation accuracy was hit. Updated
 | 2026-04-11 07:01 | run_05 | Coates K=1600 P=6 C=0.001 (GPU) | 0.7576 | — | GPU sweep started |
 | 2026-04-11 07:35 | run_05 | Coates K=1600 P=6 C=0.003 (GPU) | 0.7656 | — | refit pending (low RAM) |
 | 2026-04-11 08:17 | run_05 | Coates K=1600 P=6 C=0.01 (GPU) | 0.7678 | **0.77400** | full refit submitted |
+| 2026-04-11 15:39 | run_06 | Coates K=3200 P=6 C=0.01 | — | 0.77150 | K=3200 slightly worse than K=1600 (diminishing returns) |
 
 ## Approach
 

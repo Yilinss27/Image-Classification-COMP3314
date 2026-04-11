@@ -1,0 +1,8 @@
+[    0.0s] loading K=3200 P=6 features
+[    2.1s] X_tr (50000, 12800) float32 (2.38 GB)
+[    2.1s] StandardScaler fit_transform on train (drop raw immediately)
+[    7.8s] X_tr_s (50000, 12800) float32
+[    7.8s] loading test features
+[    8.3s] X_te_s (10000, 12800)
+[    8.3s] loading y and names
+[    8.3s] LinearSVC fit C=0.003 (full 50k)
