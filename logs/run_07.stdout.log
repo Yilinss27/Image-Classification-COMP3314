@@ -1,0 +1,29 @@
+[17:30:53] INFO === run_07_cuml_sweep started ===
+[17:30:53] INFO args: {'smoke': False, 'k_list': '400,800,1200,1600,2000,2400,3200,4000,6000,8000', 'c_list': '0.003,0.005,0.01,0.02,0.03', 'patch': 6, 'patch_list': '4,5,6,7,8', 'pool': 2, 'stride': 1, 'n_patches': 1000000, 'batch_size': 400, 'n_jobs': 8, 'parallel_c': 5}
+[17:30:53] INFO GPU free=30.86/31.36 GiB
+[17:30:53] INFO [START] load train/test
+[17:30:53] INFO [END]   load train/test  (0.1s)
+[17:30:53] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[17:30:53] INFO train sub 45000  val 5000
+[17:30:53] INFO sweep: 5 P × 10 K × 5 C = 250 configs
+[17:30:53] INFO parallel C fits per (P,K): 5
+[17:30:53] INFO 
+### P=4 K=400 ###
+[17:30:53] INFO [START] sample 1000000 patches (P=4)
+[17:30:55] INFO [END]   sample 1000000 patches (P=4)  (1.7s)
+[17:30:55] INFO [START] contrast normalize
+[17:30:55] INFO [END]   contrast normalize  (0.5s)
+[17:30:55] INFO [START] fit ZCA
+[17:30:55] INFO [END]   fit ZCA  (0.3s)
+[17:30:55] INFO [START] apply ZCA
+[17:30:56] INFO [END]   apply ZCA  (0.1s)
+[17:30:56] INFO [START] MiniBatchKMeans K=400
+[17:30:59] INFO [END]   MiniBatchKMeans K=400  (2.9s)
+[17:30:59] INFO saved dict run07_dict_K400_P4_N1000000.npz
+[17:30:59] INFO [START] GPU encode train (50000 imgs, K=400, P=4)
+[17:31:07] INFO [END]   GPU encode train (50000 imgs, K=400, P=4)  (8.0s)
+[17:31:07] INFO saved features run07_feat_train_K400_P4.npy shape (50000, 1600)
+[17:31:07] INFO [START] GPU encode test (10000 imgs, K=400, P=4)
+[17:31:08] INFO [END]   GPU encode test (10000 imgs, K=400, P=4)  (1.5s)
+[17:31:08] INFO saved features run07_feat_test_K400_P4.npy shape (10000, 1600)
+[17:31:10] INFO [START] parallel LinearSVC P=4 K=400 (5 C, 5-way)
