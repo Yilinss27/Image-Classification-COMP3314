@@ -37,3 +37,19 @@
 [09:01:03] INFO [END]   LinearSVC C=0.03  (2624.3s)
 [09:01:03] INFO   K=1600 P=6 C=0.03  val=0.7532
 [09:01:03] INFO [START] LinearSVC C=0.1
+[09:59:17] INFO [END]   LinearSVC C=0.1  (3494.4s)
+[09:59:17] INFO   K=1600 P=6 C=0.1  val=0.7368
+[09:59:17] INFO   [best] C=0.01 acc=0.7678
+[09:59:19] INFO --- config 2/4: {'K': 3200, 'patch': 6, 'stride': 1, 'pool': 2} ---
+[09:59:23] INFO [START] sample 500000 patches (P=6)
+[09:59:23] INFO [END]   sample 500000 patches (P=6)  (0.6s)
+[09:59:23] INFO [START] contrast normalize
+[09:59:24] INFO [END]   contrast normalize  (0.3s)
+[09:59:24] INFO [START] fit ZCA
+[09:59:24] INFO [END]   fit ZCA  (0.1s)
+[09:59:24] INFO [START] apply ZCA
+[09:59:24] INFO [END]   apply ZCA  (0.2s)
+[09:59:24] INFO [START] MiniBatchKMeans K=3200
+[09:59:49] INFO [END]   MiniBatchKMeans K=3200  (24.7s)
+[09:59:49] INFO saved dict gpu_dict_K3200_P6_N500000.npz
+[09:59:49] INFO [START] GPU encode train (50000 imgs, K=3200, P=6)

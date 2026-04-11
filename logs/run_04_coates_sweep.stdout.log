@@ -83,3 +83,6 @@
 [09:25:24] INFO [END]   encode test (10000 imgs, K=1600, patch=6)  (98.9s)
 [09:25:24] INFO saved features sweep_feat_test_K1600_P6.npy shape (10000, 6400)
 [09:25:28] INFO [START] LinearSVC C=0.001
+[09:48:35] INFO [END]   LinearSVC C=0.001  (1386.2s)
+[09:48:35] INFO   K=1600 patch=6 C=0.001  val=0.7554
+[09:48:35] INFO [START] LinearSVC C=0.003
