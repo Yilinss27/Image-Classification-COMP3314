@@ -103,3 +103,6 @@
 [08:13:14] INFO [END]   LinearSVC C=0.03  (1443.2s)
 [08:13:14] INFO   K=800 patch=6 C=0.03  val=0.7472
 [08:13:14] INFO [START] LinearSVC C=0.1
+[08:39:56] INFO [END]   LinearSVC C=0.1  (1601.4s)
+[08:39:56] INFO   K=800 patch=6 C=0.1  val=0.7348
+[08:39:56] INFO [START] LinearSVC C=0.3
