@@ -1,7 +1,13 @@
-"""Analyse run_07 cuML sweep results and produce plots + stats for the report."""
+"""Analyse run_07 cuML sweep results and produce plots + stats for the report.
+
+Reads BOTH the final results JSON (P=5-8) AND the full stdout log (which
+contains P=4 from the earlier sweep attempt). Takes the LAST occurrence of
+each (P,K,C) so we get the canonical final val for each config.
+"""
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -10,13 +16,28 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "logs" / "run_07_cuml_sweep_results.json"
+LOG = ROOT / "logs" / "run_07_cuml.stdout.log"
 FIG_DIR = Path(__file__).resolve().parent / "figures"
 FIG_DIR.mkdir(exist_ok=True)
 
 SOTA_VAL = 0.7678  # previous sklearn LinearSVC K=1600 P=6 C=0.01 public=0.77400
 
-df = pd.DataFrame(json.load(open(RESULTS)))
+# Parse val= lines from the full stdout log (covers all 5 P values including P=4)
+pat = re.compile(r"P=(\d+) K=(\d+) C=([\d.]+) val=([\d.]+)")
+latest: dict[tuple[int, int, float], float] = {}
+for line in LOG.read_text().splitlines():
+    m = pat.search(line)
+    if m:
+        latest[(int(m[1]), int(m[2]), float(m[3]))] = float(m[4])
+# Augment with final JSON (P=5-8) — same numbers, just a sanity check
+for r in json.load(open(RESULTS)):
+    latest[(r["P"], r["K"], r["C"])] = r["val_acc"]
+
+df = pd.DataFrame(
+    [{"P": P, "K": K, "C": C, "val_acc": v} for (P, K, C), v in latest.items()]
+)
 df["delta_sota"] = df["val_acc"] - SOTA_VAL
+assert len(df) == 250, f"expected 250 configs, got {len(df)}"
 print("n configs:", len(df))
 print("P values:", sorted(df.P.unique()))
 print("K values:", sorted(df.K.unique()))
@@ -37,8 +58,8 @@ print(top10[["P", "K", "C", "val_acc", "delta_sota"]].to_string(index=False))
 print()
 
 # ---- Plot 1: val acc vs K for each P (best C per (P,K)) ----
-fig, ax = plt.subplots(figsize=(9, 5.5))
-colors = {4: "#5BA8E8", 5: "#4CAF50", 6: "#E53935", 7: "#FB8C00", 8: "#8E44AD"}
+fig, ax = plt.subplots(figsize=(9.5, 6))
+colors = {4: "#2E86C1", 5: "#4CAF50", 6: "#E53935", 7: "#FB8C00", 8: "#8E44AD"}
 for P in sorted(df.P.unique()):
     sub = best_pk[best_pk.P == P].sort_values("K")
     ax.plot(sub.K, sub.val_acc, marker="o", linewidth=2, markersize=7,

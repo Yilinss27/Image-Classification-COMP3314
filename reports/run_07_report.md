@@ -17,7 +17,7 @@ C  ∈ {0.003, 0.005, 0.01, 0.02, 0.03}
 pool = 2×2  · n_patches(KMeans) = 1,000,000  · stride = 1
 ```
 
-5 × 10 × 5 = **250 configs total** (200 for P=5–8 captured in `run_07_cuml_sweep_results.json`; the 50 for P=4 are preserved in committed submissions and were completed in an earlier run of the same script before a disk-full crash on K≥6000 forced a restart with `--batch-size 128` and `--patch-list 5,6,7,8`).
+5 × 10 × 5 = **250 configs total** (200 for P=5–8 in the final `run_07_cuml_sweep_results.json`; the 50 for P=4 completed in an earlier sweep run before a disk-full crash on K≥6000 forced a restart with `--batch-size 128` and `--patch-list 5,6,7,8`. P=4 val numbers are recovered from `logs/run_07_cuml.stdout.log`, which contains both runs interleaved).
 
 All (P, K) stages share the same validation split (`train_test_split(..., test_size=0.1, stratify=y, random_state=0)`), so val numbers are directly comparable across configs.
 
@@ -25,7 +25,13 @@ All (P, K) stages share the same validation split (`train_test_split(..., test_s
 
 ## 2. Headline results
 
-**Top 10 configs (out of 200 P=5–8 configs):**
+**Grand view of every cell:**
+
+![All 250 configs grid](figures/00_all_250_configs.png)
+
+Each subplot is one patch size (P=4 → 8); rows are K, columns are C. ⭐ marks the per-P best; navy-outlined cells beat the prior SOTA val=0.7678; all 250 cells are annotated.
+
+**Top 10 configs (out of 250):**
 
 | Rank | P | K    | C     | Val acc  | Δ vs 0.7678 |
 |------|---|------|-------|----------|-------------|
@@ -40,7 +46,9 @@ All (P, K) stages share the same validation split (`train_test_split(..., test_s
 | 9    | 5 | 6000 | 0.005 | 0.7788   | +1.10 pp    |
 | 10   | 7 | 3200 | 0.003 | 0.7788   | +1.10 pp    |
 
-**21 of 40 (P, K) combinations** beat the prior 0.7678 sklearn baseline (outlined in blue in the P×K heatmap below).
+**22 of 50 (P, K) combinations** beat the prior 0.7678 sklearn baseline (outlined in blue in the P×K heatmap below). At the individual-config level, **59 of 250 configs** clear 0.7678.
+
+**P=4 joins only via one cell** — `P=4 K=8000 C=0.003 val=0.7686` (+0.08 pp) — confirming that small patches need the absolute largest dictionary to break SOTA, and even then only marginally. Every other P=4 config is below 0.77.
 
 **Kaggle-verified:** `sub_run07_P6_K8000_C0.003.csv` (val 0.7858) → **public 0.78400** — a **+1.00 pp** improvement over the previous 0.77400 SOTA.
 
@@ -54,12 +62,15 @@ The single most striking pattern: **the optimal dictionary size K\* shrinks as p
 
 | P | K\* (argmax val)  | Peak val  |
 |---|-------------------|-----------|
+| 4 | **8000** (monotonic) | 0.7686 |
 | 5 | **8000** (monotonic) | 0.7794 |
 | 6 | **8000** (monotonic) | **0.7858** |
 | 7 | **4000**             | 0.7824 |
 | 8 | **3200**             | 0.7816 |
 
-For P ≥ 7, growing K past the optimum actively hurts: P=8 K=8000 collapses to val=0.7502 (worse than P=8 K=1200!). For P=6 we never saw a turnover within the swept range — K=8000 is the best and K=10000+ might still improve it, though the improvement from K=6000→8000 was only +0.008 so diminishing returns are clearly kicking in.
+**P=4 is the curve sitting entirely at the bottom** of the plot — starts at 0.7138 at K=400 (worst of any patch size) and only reaches 0.7686 at K=8000, barely kissing the prior SOTA. Small patches carry too little local information for this dataset: a 4×4×3 = 48-dim patch forces the K-means dictionary to do all the heavy lifting, and even K=8000 isn't quite enough.
+
+For P ≥ 7, growing K past the optimum actively hurts: P=8 K=8000 collapses to val=0.7502 (worse than P=8 K=1200!). For P=4/5/6 we never saw a turnover within the swept range — K=8000 is the best for all three and K=10000+ might still improve them, though the improvement from K=6000→8000 was only +0.002–0.008 so diminishing returns are clearly kicking in.
 
 **Intuition.** A P×P×3 patch lives in a `3P²`-dimensional space: 48 dims for P=4, 108 for P=6, 192 for P=8. K-means on many more clusters than the effective intrinsic dimension mostly produces redundant centroids, which the triangle encoder then over-activates, making the feature space noisy enough to hurt the linear classifier. Large patches exhaust their natural "vocabulary" at smaller K.
 
@@ -69,9 +80,10 @@ For P ≥ 7, growing K past the optimum actively hurts: P=8 K=8000 collapses to 
 
 ![P x K heatmap](figures/02_heatmap_best_per_PK.png)
 
-- **P=6 is the sweet spot** (12 of 13 configs above 0.76; only K=400 below).
-- SOTA beaters (≥0.7678, outlined in blue) cluster in the **P ∈ {5, 6, 7, 8}, K ∈ {2400…8000}** rectangle.
-- **P=4 vs P=8 at small K are near-identical** (≈0.71–0.73) — patch size only matters once K is large enough to exploit the extra dimensionality.
+- **P=6 is the sweet spot** — 9 of 10 (P=6, K) combinations beat SOTA (only K=400 doesn't).
+- SOTA beaters (≥0.7678, outlined in blue) cluster in a roughly diagonal band: small P wants large K, large P wants medium K.
+- **P=4** only reaches SOTA at K=8000 (single blue cell).
+- **P=4 at small K is actually the worst row** — at K=400, P=4 gets 0.7138, while P=5/6/7/8 all cluster around 0.728. Small P + small K is information-starved.
 
 ---
 
@@ -79,8 +91,9 @@ For P ≥ 7, growing K past the optimum actively hurts: P=8 K=8000 collapses to 
 
 ![C sweep K=4000 and K=8000](figures/03_C_sweep_K4k_K8k.png)
 
-- At **K=4000**, all four patch sizes share a similar U-shape peaking at **C ∈ {0.003, 0.005}**.
+- At **K=4000**, all five patch sizes share a similar U-shape peaking at **C ∈ {0.003, 0.005}**.
 - At **K=8000**, the curves fan out dramatically: P=6 peaks at C=0.003 (0.7858), but P=8 decays almost linearly from 0.7502 at C=0.003 down to 0.7258 at C=0.02 — the over-parameterized P=8 K=8000 classifier is so data-hungry that **any** regularization hurts.
+- **P=4 at K=8000** peaks at C=0.003 (0.7686) and stays nearly flat — small patches produce feature vectors that are themselves relatively mild, so the classifier isn't especially regularization-sensitive.
 - Larger (P, K) configurations want **smaller C** (less regularization) because the feature space already regularizes them through K-means compression.
 
 ---
@@ -93,12 +106,13 @@ Counting, across each patch size, how often each C value won its (P, K):
 
 | P | C=0.003 | 0.005 | 0.01 | 0.02 | 0.03 |
 |---|---------|-------|------|------|------|
+| 4 | 1 | 3 | 2 | 1 | **3** |
 | 5 | 2 | 3 | 1 | 2 | 2 |
 | 6 | **4** | 1 | 2 | 2 | 1 |
 | 7 | **4** | 3 | 0 | 1 | 2 |
 | 8 | **5** | 2 | 1 | 1 | 1 |
 
-The bias toward **C=0.003** strengthens monotonically as P grows. Small patches (and small K) still want substantial L2 regularization because their feature space is sparse; large-patch/large-K configurations are already information-rich and prefer a nearly unregularized fit.
+The bias toward **C=0.003** strengthens monotonically as P grows. P=4 tilts the other way — it often prefers the LARGEST C in the grid (C=0.03 wins 3 of 10 (P=4, K) cells, mostly at small K), because P=4 feature vectors are narrow enough that the classifier benefits from extra regularization. Large-patch/large-K configurations are already information-rich and prefer a nearly unregularized fit.
 
 If we re-ran the sweep we would **extend C downward** (e.g. add 0.0005, 0.001, 0.0015) rather than upward — the current grid's lower edge is exactly where P ≥ 6 clusters.
 
@@ -116,7 +130,7 @@ Zooming into the winning patch size: for P=6 there's a broad high-value plateau 
 
 ![optimal K per P](figures/04_optimal_K_per_P.png)
 
-Captures §3 as a single picture. P=5/6 want the full K=8000; P=7 peaks at K=4000; P=8 peaks at K=3200. Roughly, `K*(P) ≈ 8000 / 2^(max(0, P-6))` — halving K* for every patch size above 6.
+Captures §3 as a single picture. **P=4/5/6 all want the full K=8000** (monotonic growth, no turnover seen); **P=7 peaks at K=4000**; **P=8 peaks at K=3200**. Roughly, `K*(P) ≈ 8000 / 2^(max(0, P-6))` — halving K* for every patch size above 6. For P ≤ 6, K* is bounded above by our grid's ceiling; the curve there is likely still climbing at K=10000+.
 
 ---
 
@@ -139,8 +153,8 @@ The val/public gap for the one submission we have so far is 0.0058 (val 0.7858 -
 ## 10. Takeaways and next steps
 
 1. **P=6 K=8000 C=0.003 is the new SOTA** (val 0.7858, public 0.78400), confirming the Coates & Ng 2011 finding that P=6 is the best patch size on CIFAR-10-like data.
-2. **Larger-patch/larger-K is NOT universally better.** P=7 and P=8 peak at K=4000 and K=3200 respectively and degrade above that. P=5 and P=6 both monotonically improve through K=8000.
-3. **Optimal C drops with (P, K).** The next sweep should add C ∈ {0.0005, 0.001, 0.0015} — the current minimum C=0.003 is the winning value for 15 of 40 (P, K) cells, hinting that the global optimum may lie below.
+2. **Larger-patch/larger-K is NOT universally better.** P=7 and P=8 peak at K=4000 and K=3200 respectively and degrade above that. P=4/5/6 all monotonically improve through K=8000 — but **P=4 only just barely reaches SOTA** (0.7686 at K=8000), so small patches are not the answer here either.
+3. **Optimal C drops with (P, K).** The next sweep should add C ∈ {0.0005, 0.001, 0.0015} — the current minimum C=0.003 is the winning value for 16 of 50 (P, K) cells, concentrated where P ≥ 6 and K ≥ 2400, hinting that the global optimum may lie below.
 4. **Biggest remaining gains are probably not from K.** Patch K=8000 P=6 is already near its plateau. More impactful experiments:
    - **pool grid 3×3 or 4×4** (features = 9K / 16K instead of 4K)
    - **whiten ε** sensitivity (we fixed ε=0.1, could try 0.01 / 0.5)
