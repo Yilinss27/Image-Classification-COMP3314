@@ -1,0 +1,45 @@
+[07:37:08] INFO === run_07_cuml_sweep_run08_refit started ===
+[07:37:08] INFO args: {'smoke': False, 'k_list': '8000', 'c_list': '0.002', 'patch': 6, 'patch_list': '6', 'pool': 2, 'stride': 1, 'n_patches': 1000000, 'batch_size': 128, 'n_jobs': 8, 'parallel_c': 4, 'tag': 'run08_refit'}
+[07:37:08] INFO GPU free=30.86/31.36 GiB
+[07:37:08] INFO [START] load train/test
+[07:37:08] INFO [END]   load train/test  (0.1s)
+[07:37:08] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[07:37:08] INFO train sub 45000  val 5000
+[07:37:08] INFO sweep: 1 P × 1 K × 1 C = 1 configs
+[07:37:08] INFO parallel C fits per (P,K): 4
+[07:37:08] INFO 
+### P=6 K=8000 ###
+[07:37:08] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[07:37:08] INFO [START] GPU encode train (50000 imgs, K=8000, P=6)
+[07:37:57] INFO [END]   GPU encode train (50000 imgs, K=8000, P=6)  (48.8s)
+[07:38:01] INFO saved features run07_feat_train_K8000_P6.npy shape (50000, 32000)
+[07:38:01] INFO [START] GPU encode test (10000 imgs, K=8000, P=6)
+[07:38:10] INFO [END]   GPU encode test (10000 imgs, K=8000, P=6)  (8.6s)
+[07:38:11] INFO saved features run07_feat_test_K8000_P6.npy shape (10000, 32000)
+[07:38:45] INFO [START] parallel LinearSVC P=6 K=8000 (1 C, 4-way)
+[2026-04-12 07:39:04.421] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 07:39:19.361] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 07:39:31.791] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 07:39:38.568] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[07:39:57] INFO   P=6 K=8000 C=0.002 val=0.7836  (72.6s)
+[07:39:57] INFO [END]   parallel LinearSVC P=6 K=8000 (1 C, 4-way)  (72.6s)
+[07:39:57] INFO   [best P=6 K=8000] C=0.002 val=0.7836
+[07:39:57] INFO [START] refit full P=6 K=8000 C=0.002
+[2026-04-12 07:40:49.871] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 07:40:56.268] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 07:41:09.289] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 07:41:20.781] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 07:41:32.648] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 07:41:50.458] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 07:42:05.107] [CUML] [warning] L-BFGS line search failed (code 1); stopping at the last valid step
+[2026-04-12 07:42:10.942] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[07:42:12] INFO [END]   refit full P=6 K=8000 C=0.002  (134.1s)
+[07:42:12] INFO   wrote sub_run07_P6_K8000_C0.002.csv (P=6, K=8000, C=0.002, val=0.7836)
+[07:42:13] INFO 
+=== sweep complete ===
+[07:42:13] INFO Top 10 by val_acc:
+[07:42:13] INFO   P=6 K=8000  C=0.0020  val=0.7836
+[07:42:13] INFO 
+Submission CSVs saved to /root/autodl-tmp/Image-Classification-COMP3314/submissions:
+[07:42:13] INFO   P=6 K=8000  C=0.002  val=0.7836
+[07:42:13] INFO === run_07_cuml_sweep_run08_refit done ===
