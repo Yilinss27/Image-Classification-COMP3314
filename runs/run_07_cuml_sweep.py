@@ -31,7 +31,12 @@ from sklearn.metrics import accuracy_score
 
 # Use cuML GPU LinearSVC — sklearn LinearSVC is pathologically slow on this
 # Xeon+OpenBLAS build. cuML fits in seconds via L-BFGS on the 5090.
-from cuml.svm import LinearSVC
+# Lazy import so other scripts can reuse encode_images_gpu / get_or_fit_dict
+# without pulling cuML (e.g. sklearn-env refit scripts).
+try:
+    from cuml.svm import LinearSVC  # noqa: F401
+except ImportError:
+    LinearSVC = None
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 from data import (

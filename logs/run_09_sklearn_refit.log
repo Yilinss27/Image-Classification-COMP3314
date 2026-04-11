@@ -1,0 +1,14 @@
+[07:06:54] INFO === run_09_sklearn_refit started ===
+[07:06:54] INFO [START] load train/test
+[07:06:54] INFO [END]   load train/test  (0.1s)
+[07:06:54] INFO will run 1 targets
+[07:06:54] INFO 
+### P7K6000C0.002 (cuML val=0.7876) ###
+[07:06:54] INFO [START] dict K=6000 P=7
+[07:06:54] INFO loaded dict run07_dict_K6000_P7_N1000000.npz
+[07:06:54] INFO [END]   dict K=6000 P=7  (0.1s)
+[07:06:54] INFO [START] GPU encode train+test K=6000 P=7
+[07:07:38] INFO [END]   GPU encode train+test K=6000 P=7  (43.8s)
+[07:07:38] INFO   F_full_tr (50000, 24000)  F_test (10000, 24000)
+[07:08:03] INFO   scaled train (45000, 24000) val (5000, 24000)
+[07:08:03] INFO   fitting sklearn LinearSVC(C=0.002, dual=False, loss='squared_hinge') ...
