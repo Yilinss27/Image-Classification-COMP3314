@@ -1,0 +1,62 @@
+[18:25:03] INFO === run_18_multicrop_avg started ===
+[18:25:03] INFO P=6 K=8000 C=0.002 n_views=5
+[18:25:03] INFO [START] load data
+[18:25:03] INFO [END]   load data  (0.1s)
+[18:25:03] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[18:25:03] INFO 
+--- Val split encoding ---
+[18:25:04] INFO [START] multi-crop avg encode train orig (45k)
+[18:25:04] INFO [START]   train_orig view 0 (original) encode
+[18:25:55] INFO [END]     train_orig view 0 (original) encode  (51.6s)
+[18:25:56] INFO [START]   train_orig view 1 (crop) encode
+[18:26:34] INFO [END]     train_orig view 1 (crop) encode  (38.5s)
+[18:26:44] INFO [START]   train_orig view 2 (crop) encode
+[18:27:23] INFO [END]     train_orig view 2 (crop) encode  (38.8s)
+[18:27:32] INFO [START]   train_orig view 3 (crop) encode
+[18:28:10] INFO [END]     train_orig view 3 (crop) encode  (38.2s)
+[18:28:21] INFO [START]   train_orig view 4 (crop) encode
+[18:28:59] INFO [END]     train_orig view 4 (crop) encode  (38.8s)
+[18:29:21] INFO [END]   multi-crop avg encode train orig (45k)  (257.1s)
+[18:29:21] INFO [START] multi-crop avg encode train flip (45k)
+[18:29:21] INFO [START]   train_flip view 0 (original) encode
+[18:30:06] INFO [END]     train_flip view 0 (original) encode  (45.1s)
+[18:30:07] INFO [START]   train_flip view 1 (crop) encode
+[18:30:45] INFO [END]     train_flip view 1 (crop) encode  (38.6s)
+[18:30:56] INFO [START]   train_flip view 2 (crop) encode
+[18:31:35] INFO [END]     train_flip view 2 (crop) encode  (39.0s)
+[18:31:47] INFO [START]   train_flip view 3 (crop) encode
+[18:32:25] INFO [END]     train_flip view 3 (crop) encode  (38.0s)
+[18:32:36] INFO [START]   train_flip view 4 (crop) encode
+[18:33:15] INFO [END]     train_flip view 4 (crop) encode  (39.4s)
+[18:33:35] INFO [END]   multi-crop avg encode train flip (45k)  (254.6s)
+[18:33:45] INFO F_tr_aug: (90000, 32000)
+[18:33:45] INFO [START] encode val (5k, plain)
+[18:33:49] INFO [END]   encode val (5k, plain)  (4.3s)
+[2026-04-12 18:35:49.718] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:36:42.761] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:37:38.800] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[18:37:52] INFO 
+*** multi-crop avg val = 0.8076 (fit 157.2s) ***
+[18:37:52] INFO     (baseline pnorm val was 0.8136)
+[18:37:52] INFO 
+--- Full refit ---
+[18:37:52] INFO [START] multi-crop avg encode full orig (50k)
+[18:37:52] INFO [START]   full_orig view 0 (original) encode
+[18:38:42] INFO [END]     full_orig view 0 (original) encode  (50.1s)
+[18:38:43] INFO [START]   full_orig view 1 (crop) encode
+[18:39:25] INFO [END]     full_orig view 1 (crop) encode  (42.6s)
+[18:39:39] INFO [START]   full_orig view 2 (crop) encode
+[18:40:21] INFO [END]     full_orig view 2 (crop) encode  (42.4s)
+[18:40:35] INFO [START]   full_orig view 3 (crop) encode
+[18:41:17] INFO [END]     full_orig view 3 (crop) encode  (42.5s)
+[18:41:31] INFO [START]   full_orig view 4 (crop) encode
+[18:42:14] INFO [END]     full_orig view 4 (crop) encode  (42.6s)
+[18:42:38] INFO [END]   multi-crop avg encode full orig (50k)  (285.9s)
+[18:42:38] INFO [START] multi-crop avg encode full flip (50k)
+[18:42:38] INFO [START]   full_flip view 0 (original) encode
+[18:43:29] INFO [END]     full_flip view 0 (original) encode  (50.4s)
+[18:43:29] INFO [START]   full_flip view 1 (crop) encode
+[18:44:12] INFO [END]     full_flip view 1 (crop) encode  (42.6s)
+[18:44:25] INFO [START]   full_flip view 2 (crop) encode
+[18:45:08] INFO [END]     full_flip view 2 (crop) encode  (42.6s)
+[18:45:21] INFO [START]   full_flip view 3 (crop) encode
