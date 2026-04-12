@@ -1,0 +1,53 @@
+[10:26:54] INFO === run_13_crop_flip started ===
+[10:26:54] INFO augmentation: 3x [orig, flip, random_crop_maybe_flip]
+[10:26:54] INFO [START] load train/test
+[10:26:54] INFO [END]   load train/test  (0.1s)
+[10:26:54] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[10:26:54] INFO train sub 45000  val 5000
+[10:26:54] INFO [START] build aug-views (3x) for 45k train
+[10:26:55] INFO [END]   build aug-views (3x) for 45k train  (1.1s)
+[10:26:55] INFO aug train: (135000, 32, 32, 3)  labels (135000,)
+[10:26:55] INFO [START] build aug-views (3x) for full 50k (for refit)
+[10:26:57] INFO [END]   build aug-views (3x) for full 50k (for refit)  (1.4s)
+[10:26:57] INFO full aug: (150000, 32, 32, 3)
+[10:26:57] INFO 
+### P=6 K=8000 C=0.002 ###
+[10:26:57] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[10:26:57] INFO [START] GPU encode aug-train (135k) K=8000 P=6
+[10:28:53] INFO [END]   GPU encode aug-train (135k) K=8000 P=6  (116.3s)
+[10:28:53] INFO [START] GPU encode val (5k) K=8000 P=6
+[10:28:57] INFO [END]   GPU encode val (5k) K=8000 P=6  (4.2s)
+[10:28:57] INFO   F_tr_aug (135000, 32000)  F_val (5000, 32000)
+Traceback (most recent call last):
+  File "/root/autodl-tmp/Image-Classification-COMP3314/runs/run_13_crop_flip.py", line 239, in <module>
+    main()
+  File "/root/autodl-tmp/Image-Classification-COMP3314/runs/run_13_crop_flip.py", line 169, in main
+    clf.fit(F_tr_s, y_tr_aug)
+  File "/root/miniconda3/lib/python3.12/site-packages/cuml/internals/outputs.py", line 424, in inner
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/cuml/svm/linear_svc.py", line 249, in fit
+    X = input_to_cuml_array(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/cuml/internals/input_utils.py", line 348, in input_to_cuml_array
+    arr = CumlArray.from_input(
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/cuml/internals/array.py", line 1152, in from_input
+    data = arr.mem_type.xpy.asarray(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/cupy/_creation/from_data.py", line 94, in asarray
+    return _core.array(a, dtype, copy, order, blocking=blocking)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 2684, in cupy._core.core.array
+  File "cupy/_core/core.pyx", line 2695, in cupy._core.core.array
+  File "cupy/_core/core.pyx", line 2718, in cupy._core.core._array_from_cupy_ndarray
+  File "cupy/_core/core.pyx", line 714, in cupy._core.core._ndarray_base._astype
+  File "cupy/_core/core.pyx", line 751, in cupy._core.core._ndarray_base._astype
+  File "cupy/_core/core.pyx", line 175, in cupy._core.core.ndarray.__new__
+  File "cupy/_core/core.pyx", line 279, in cupy._core.core._ndarray_base._init
+  File "cupy/cuda/memory.pyx", line 877, in cupy.cuda.memory.alloc
+  File "/root/miniconda3/lib/python3.12/site-packages/rmm/allocators/cupy.py", line 28, in rmm_cupy_allocator
+    buf = pylibrmm.device_buffer.DeviceBuffer(size=nbytes, stream=stream)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "rmm/pylibrmm/device_buffer.pyx", line 93, in rmm.pylibrmm.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 17280000000 bytes) at: /tmp/pip-build-env-dgiyosea/normal/lib/python3.11/site-packages/librmm/include/rmm/mr/cuda_memory_resource.hpp:51: cudaErrorMemoryAllocation out of memory

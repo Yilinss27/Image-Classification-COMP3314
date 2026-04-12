@@ -82,16 +82,17 @@ def flip_horizontal(X: np.ndarray) -> np.ndarray:
 
 
 def build_aug_views(X: np.ndarray, seed_base: int) -> np.ndarray:
-    """2x augmentation: two independent random crops + 50% flip each.
+    """3x augmentation: [original, flipped, random_crop + 50% flip].
 
-    The first view uses flip_prob=0.5 with seed A so ~half are flipped;
-    the second view uses a different seed B so the crops are distinct
-    from view 1. Together this gives 2x data with full crop+flip coverage.
+    Preserves the run_12 flip-only baseline (views 0+1) and adds one
+    random-crop view on top. 45k -> 135k fits in 5090 VRAM (~17.3 GB
+    at K=8000 P=6) with proper cupy mempool cleanup before fit.
     """
+    v0 = X
+    v1 = flip_horizontal(X)
     X_pad = pad_reflect(X)
-    v0 = random_crop(X_pad, seed=seed_base + 0, flip_prob=0.5)
-    v1 = random_crop(X_pad, seed=seed_base + 1, flip_prob=0.5)
-    return np.concatenate([v0, v1], axis=0)
+    v2 = random_crop(X_pad, seed=seed_base, flip_prob=0.5)
+    return np.concatenate([v0, v1, v2], axis=0)
 
 
 def main():
@@ -102,7 +103,7 @@ def main():
 
     log = get_logger(RUN_NAME, LOG_DIR / f"{RUN_NAME}.log")
     log.info(f"=== {RUN_NAME} started ===")
-    log.info(f"augmentation: 2x [random_crop_A_maybe_flip, random_crop_B_maybe_flip]")
+    log.info(f"augmentation: 3x [orig, flip, random_crop_maybe_flip]")
 
     with Timer(log, "load train/test"):
         X, y, _ = load_train_cached(n_jobs=8)
@@ -118,14 +119,14 @@ def main():
     X_tr = X[idx_tr]
     X_val = X[idx_val]
 
-    with Timer(log, "build aug-views (2x) for 45k train"):
+    with Timer(log, "build aug-views (3x) for 45k train"):
         X_tr_aug = build_aug_views(X_tr, seed_base=100)
-        y_tr_aug = np.tile(y_tr, 2)
+        y_tr_aug = np.tile(y_tr, 3)
     log.info(f"aug train: {X_tr_aug.shape}  labels {y_tr_aug.shape}")
 
-    with Timer(log, "build aug-views (2x) for full 50k (for refit)"):
+    with Timer(log, "build aug-views (3x) for full 50k (for refit)"):
         X_full_aug = build_aug_views(X, seed_base=200)
-        y_full_aug = np.tile(y, 2)
+        y_full_aug = np.tile(y, 3)
     log.info(f"full aug: {X_full_aug.shape}")
 
     Xte_flip = flip_horizontal(Xte)
@@ -143,7 +144,7 @@ def main():
         centroids, zca_mean, zca_W = get_or_fit_dict(
             X[idx_tr], K, patch, N_PATCHES, log, rng)
 
-        with Timer(log, f"GPU encode aug-train (90k) K={K} P={patch}"):
+        with Timer(log, f"GPU encode aug-train (135k) K={K} P={patch}"):
             F_tr_aug = encode_images_gpu(
                 X_tr_aug, centroids, zca_mean, zca_W,
                 patch=patch, stride=STRIDE, pool=POOL, batch_size=BATCH_SIZE)
@@ -171,11 +172,11 @@ def main():
         if hasattr(val_preds, "get"):
             val_preds = val_preds.get()
         val_acc = float(accuracy_score(y_val, val_preds))
-        log.info(f"  2x-cropflip val={val_acc:.4f}  (fit {fit_dt:.1f}s)")
+        log.info(f"  3x-cropflip val={val_acc:.4f}  (fit {fit_dt:.1f}s)")
         results.append(dict(P=patch, K=K, C=C, val_aug=val_acc))
 
         if not args.skip_refit:
-            with Timer(log, f"GPU encode full-aug (100k) K={K} P={patch}"):
+            with Timer(log, f"GPU encode full-aug (150k) K={K} P={patch}"):
                 F_full_aug = encode_images_gpu(
                     X_full_aug, centroids, zca_mean, zca_W,
                     patch=patch, stride=STRIDE, pool=POOL, batch_size=BATCH_SIZE)
@@ -230,7 +231,7 @@ def main():
 
     log.info(f"\n=== {RUN_NAME} summary ===")
     for r in results:
-        log.info(f"  P={r['P']} K={r['K']} C={r['C']}  2x-cropflip val={r['val_aug']:.4f}")
+        log.info(f"  P={r['P']} K={r['K']} C={r['C']}  3x-cropflip val={r['val_aug']:.4f}")
     log.info(f"=== {RUN_NAME} done ===")
 
 
