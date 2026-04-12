@@ -1,0 +1,35 @@
+[17:11:11] INFO === run_17_power_norm started ===
+[17:11:11] INFO [START] load data
+[17:11:11] INFO [END]   load data  (0.1s)
+[17:11:11] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[17:11:12] INFO [START] encode aug-train (90k)
+[17:12:39] INFO [END]   encode aug-train (90k)  (87.0s)
+[17:12:39] INFO [START] encode val (5k)
+[17:12:44] INFO [END]   encode val (5k)  (5.0s)
+[17:12:44] INFO   F_tr (90000, 32000)  F_val (5000, 32000)
+[17:12:44] INFO 
+=== A: baseline (StandardScaler only) ===
+[17:15:44] INFO   baseline C=0.0010  val=0.8088  (119.2s)
+[17:18:09] INFO   baseline C=0.0020  val=0.8118  (144.9s)
+[17:21:01] INFO   baseline C=0.0030  val=0.8114  (171.3s)
+[17:24:26] INFO   baseline C=0.0050  val=0.8068  (205.6s)
+[17:24:27] INFO 
+=== B: power_norm + StandardScaler ===
+[17:28:05] INFO   pnorm C=0.0010  val=0.8112  (128.7s)
+[17:30:33] INFO   pnorm C=0.0020  val=0.8136  (148.1s)
+[17:33:22] INFO   pnorm C=0.0030  val=0.8110  (168.8s)
+[17:36:30] INFO   pnorm C=0.0050  val=0.8110  (188.4s)
+[17:36:31] INFO 
+=== C: power_norm + L2_norm + StandardScaler ===
+[17:39:52] INFO   pnorm+L2 C=0.0010  val=0.8110  (117.1s)
+[17:42:17] INFO   pnorm+L2 C=0.0020  val=0.8126  (145.1s)
+[17:45:16] INFO   pnorm+L2 C=0.0030  val=0.8124  (178.7s)
+[17:48:38] INFO   pnorm+L2 C=0.0050  val=0.8098  (202.6s)
+[17:48:39] INFO 
+=== Summary ===
+[17:48:39] INFO   pnorm best: C=0.002 val=0.8136
+[17:48:39] INFO   pnorm+L2 best: C=0.002 val=0.8126
+[17:48:39] INFO 
+--- Full refit: pnorm C=0.002 ---
+[17:48:39] INFO [START] encode full-aug (100k)
+[17:50:19] INFO [END]   encode full-aug (100k)  (99.6s)

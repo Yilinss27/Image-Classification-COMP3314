@@ -1,0 +1,11 @@
+loaded dict run07_dict_K8000_P6_N1000000.npz
+encoding 100k...
+fitting C=0.002...
+[2026-04-12 18:09:31.088] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:11:01.469] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:11:25.810] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:11:45.403] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:12:04.876] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+test encode+TTA...
+wrote subs. TTA changed 585/10000 (5.85%)
+DONE
