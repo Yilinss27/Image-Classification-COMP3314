@@ -19,6 +19,11 @@ Running log of every time a new best-so-far validation accuracy was hit. Updated
 | 2026-04-11 08:17 | run_05 | Coates K=1600 P=6 C=0.01 (GPU) | 0.7678 | **0.77400** | full refit submitted |
 | 2026-04-11 15:39 | run_06 | Coates K=3200 P=6 C=0.01 | — | 0.77150 | K=3200 slightly worse than K=1600 (diminishing returns) |
 | 2026-04-11 23:37 | run_07 | Coates K=8000 P=6 C=0.003 (cuML GPU) | 0.7858 | **0.78400** | new SOTA, cuML L-BFGS LinearSVC on 5090 |
+| 2026-04-12 06:28 | run_08 | Phase B: P=7 K=6000 C=0.002 (lower C) | 0.7876 | 0.78600 | C < 0.003 helps P=7/8 |
+| 2026-04-12 07:49 | run_08 | P=6 K=8000 C=0.002 (diversification) | 0.7836 | **0.78750** | val↓ but public↑ (val-public gap) |
+| 2026-04-12 09:45 | run_12 | **+ flip augmentation** (90k train) | **0.8122** | **0.81550** | +0.028 pp, biggest single win |
+| 2026-04-12 18:13 | run_17 | **+ power normalization** (signed sqrt) | **0.8136** | **0.82700** | +0.012 pp, second biggest win |
+| 2026-04-12 20:17 | run_19 | **2-model pnorm ensemble** (P=6+P=7) | **0.8234** | pending | final submission |
 
 ## run_07 cuML GPU sweep (2026-04-11, complete)
 
@@ -74,9 +79,40 @@ Five progressively stronger pipelines, all built from `scikit-learn` / `scikit-i
 | `run_04_coates_sweep.py` | Coates pipeline, sweep over `K ∈ {400, 800, 1600}`, `patch ∈ {6, 8}`, `C ∈ {1e-3 … 3e-1}` (CPU) | LinearSVC | up to ~0.75 |
 | `run_05_gpu_coates.py` | Same sweep extended to `K ∈ {1600, 3200}`, GPU-accelerated patch encoding via `cupy` | LinearSVC | up to ~0.77 |
 | `run_06_k3200.py` | Refit K=3200 P=6 C=0.01 on full 50k train (no val split) | LinearSVC | — (public 0.77150) |
-| `run_07_cuml_sweep.py` | Wide `P × K × C` grid on 5090: P∈{4..8}, K∈{400..8000}, C∈{0.003..0.03}, cupy encoding + **cuML GPU LinearSVC** (sklearn LinearSVC is pathologically slow on the Xeon 8470Q + OpenBLAS "Haswell" build) | cuML LinearSVC | **0.7858 / 0.78400 public** |
+| `run_07_cuml_sweep.py` | Wide `P × K × C` grid on 5090: P∈{4..8}, K∈{400..8000}, C∈{0.003..0.03}, cupy encoding + **cuML GPU LinearSVC** | cuML LinearSVC | 0.7858 / 0.78400 |
+| `run_08_phase_b.py` | Lower C extension (C∈{0.0005,0.001,0.002}) for 16 cells where C=0.003 was grid floor | cuML LinearSVC | 0.7876 / 0.78750 |
+| `run_12_flip_aug.py` | **+ Horizontal flip augmentation** (50k→100k train) + TTA2 | cuML LinearSVC | 0.8122 / 0.81550 |
+| `run_17_power_norm.py` | **+ Power normalization** `sign(x)*sqrt(\|x\|)` on encoded features | cuML LinearSVC | 0.8136 / **0.82700** |
+| `run_19_pnorm_ensemble.py` | **2-model ensemble** (P=6+P=7) + pnorm + flip + TTA2 | cuML LinearSVC | **0.8234** / pending |
 
 The Coates-Ng single-layer unsupervised feature learning pipeline gives by far the best results and is the source of the final submission.
+
+## Post-run_07 optimization (2026-04-12)
+
+After the 250-config sweep established P=6 K=8000 C=0.003 as baseline (public 0.78400), we ran 12 more experiments exploring augmentation, normalization, architecture changes, and ensembling. Full log: `reports/post_run07_experiments.md`.
+
+**Three techniques stacked for the final solution:**
+
+1. **Horizontal flip augmentation** (run_12): doubles training data, +0.028 public
+2. **Power normalization** (run_17): `sign(x)*sqrt(|x|)` on features, +0.012 public
+3. **Multi-P ensemble** (run_19): soft-vote of P=6 and P=7 models, +0.01 on val
+
+**Techniques that did NOT help:** random crop aug (VRAM limit + regression), 10-view spatial TTA (−0.015), two-layer Coates (K1 too small), multi-crop feature averaging (blurs info), pushing K past 8000 (plateau).
+
+### Final pipeline
+
+```
+For each model (P=6 K=8000 C=0.002, P=7 K=6000 C=0.002):
+  1. Random 6×6 (or 7×7) patches → contrast norm → ZCA whiten
+  2. MiniBatchKMeans dictionary (K=8000 or 6000)
+  3. Triangle encoding → 2×2 sum pool → features (32000 or 24000 dim)
+  4. Flip augmentation: train on [original + flipped] = 100k samples
+  5. Power normalization: sign(x) * sqrt(|x|)
+  6. StandardScaler + cuML LinearSVC (C=0.002)
+Ensemble: average per-model TTA2 decision functions → argmax
+```
+
+**Result: val 0.8234 / public 0.82700** (from single-model pnorm submission; ensemble pending).
 
 ## Layout
 
