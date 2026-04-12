@@ -89,26 +89,51 @@ The Coates-Ng single-layer unsupervised feature learning pipeline gives by far t
 
 ## Post-run_07 optimization (2026-04-12)
 
-After the 250-config sweep established P=6 K=8000 C=0.003 as baseline (public 0.78400), we ran 12 more experiments exploring augmentation, normalization, architecture changes, and ensembling. Full log: `reports/post_run07_experiments.md`.
+After the 250-config sweep established P=6 K=8000 C=0.003 as baseline (public 0.78400), we ran 12 more experiments exploring augmentation, normalization, architecture changes, and ensembling. The full experimental log with detailed analysis and 11 figures is in `reports/post_run07_experiments.md`. Phase B analysis (4 figures) is in `reports/analyze_phase_b.py`.
 
-**Three techniques stacked for the final solution:**
+![Public score progression](reports/figures/post07_01_public_progression.png)
 
-1. **Horizontal flip augmentation** (run_12): doubles training data, +0.028 public
-2. **Power normalization** (run_17): `sign(x)*sqrt(|x|)` on features, +0.012 public
-3. **Multi-P ensemble** (run_19): soft-vote of P=6 and P=7 models, +0.01 on val
+### What worked (stacked for final solution)
 
-**Techniques that did NOT help:** random crop aug (VRAM limit + regression), 10-view spatial TTA (−0.015), two-layer Coates (K1 too small), multi-crop feature averaging (blurs info), pushing K past 8000 (plateau).
+**1. Horizontal flip augmentation** (run_12, +0.028 public): Doubles training data by appending horizontally flipped copies. The single biggest improvement in this project — we had been optimizing hyperparameters when the real bottleneck was training data diversity. Also includes TTA2 (test-time augmentation: average `decision_function` of original and flipped test images).
+
+**2. Power normalization** (run_17, +0.012 public): Applies `sign(x) * sqrt(|x|)` to triangle-encoded features before `StandardScaler`. Triangle encoding produces sparse, right-skewed features where a few large activations dominate the linear classifier. Square-root compression equalizes their influence, making the distribution more Gaussian. This is standard practice in the Fisher vector literature (Perronnin et al., 2010). Remarkably, the val improvement was only +0.0018, but the public improvement was +0.0115 — power norm improves generalization far more than val suggests.
+
+![Power norm comparison](reports/figures/post07_04_power_norm_comparison.png)
+
+**3. Multi-P ensemble** (run_19, +0.01 val): Soft-vote of two models with different patch sizes (P=6 K=8000 and P=7 K=6000). Different patch sizes capture different local patterns and make uncorrelated errors, so averaging their `decision_function` outputs reduces variance. The 2-model ensemble achieves val 0.8234 vs single-model best of 0.8134 (+0.0100).
+
+![Ensemble comparison](reports/figures/post07_06_ensemble_comparison.png)
+
+### What didn't work (and why)
+
+| Experiment | Technique | Result | Root cause |
+|---|---|---|---|
+| run_09 | sklearn MKL refit | abandoned | liblinear single-core CD too slow on this CPU, even with MKL |
+| run_10 | Push K past 8000 | plateau | P=6 val curve flat at K=8000–10000; K→C\* inverse trend confirmed |
+| run_13 | Random crop + flip | regression / OOM | 32×32 too small for spatial crops; cuML RMM VRAM limit |
+| run_14 | 10-view spatial TTA | −0.015 public | Corner crops shift objects out of 32×32 frame |
+| run_16 | Two-layer Coates-Ng | no improvement | K1=1600 too weak; larger K1 makes L2 patch dim impractical |
+| run_18 | Multi-crop feature avg | regression | Averaging features across crops blurs spatial discriminativity |
+
+![Failed experiments](reports/figures/post07_05_failed_experiments.png)
+
+### Key insight: val-public gap
+
+A recurring observation: **val accuracy is a noisy, sometimes misleading predictor of public score**. The most dramatic example is power norm — val improved by only +0.0018 but public improved by +0.0115 (8× amplification). Conversely, 10-view TTA showed decent val (0.8104) but terrible public (0.80000). This suggests optimizing for feature robustness (augmentation, normalization) is more important than chasing val accuracy via hyperparameter tuning.
+
+![Val vs Public scatter](reports/figures/post07_07_val_vs_public.png)
 
 ### Final pipeline
 
 ```
 For each model (P=6 K=8000 C=0.002, P=7 K=6000 C=0.002):
-  1. Random 6×6 (or 7×7) patches → contrast norm → ZCA whiten
-  2. MiniBatchKMeans dictionary (K=8000 or 6000)
-  3. Triangle encoding → 2×2 sum pool → features (32000 or 24000 dim)
-  4. Flip augmentation: train on [original + flipped] = 100k samples
+  1. Random P×P patches → per-patch contrast normalization → ZCA whitening
+  2. MiniBatchKMeans dictionary learning (K=8000 or 6000, 1M patches)
+  3. Triangle encoding f_k = max(0, μ(z) - z_k) → 2×2 quadrant sum pool
+  4. Horizontal flip augmentation: train on [original + flipped] = 100k samples
   5. Power normalization: sign(x) * sqrt(|x|)
-  6. StandardScaler + cuML LinearSVC (C=0.002)
+  6. StandardScaler → cuML GPU LinearSVC (C=0.002, L-BFGS, squared_hinge)
 Ensemble: average per-model TTA2 decision functions → argmax
 ```
 
@@ -117,13 +142,20 @@ Ensemble: average per-model TTA2 decision functions → argmax
 ## Layout
 
 ```
-runs/        entry-point scripts (one per experiment)
-src/         shared data loading, logging, submission utilities
-logs/        per-run stdout + structured logs with validation metrics
-submissions/ generated Kaggle submission CSVs
-cache/       (gitignored) cached .npy features + KMeans dictionaries
-data/        (gitignored) raw train/test images and CSV label files
-checkpoints/ (gitignored) pickled models
+runs/            entry-point scripts (one per experiment, run_01..run_19)
+src/             shared data loading, logging, submission utilities
+logs/            per-run stdout + structured logs with validation metrics
+submissions/     generated Kaggle submission CSVs
+reports/         analysis reports, figures, and data visualizations
+  run_07_report.md              250-config sweep analysis (6 figures)
+  post_run07_experiments.md     post-sweep optimization log (7 figures)
+  analyze_run07.py              run_07 analysis script
+  analyze_phase_b.py            Phase B analysis script (4 figures)
+  analyze_post_run07.py         post-run_07 analysis script (7 figures)
+  figures/                      all generated PNG figures
+cache/           (gitignored) cached .npy features + KMeans dictionaries
+data/            (gitignored) raw train/test images and CSV label files
+notebook_final_executed.ipynb   pre-executed Jupyter notebook (final pipeline)
 ```
 
 ## Reproduction
