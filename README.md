@@ -4,6 +4,8 @@
 
 CIFAR-10-style dataset (50k train / 10k test, 32×32 RGB, 10 classes). Public leaderboard accuracy: **0.829**.
 
+[**Technical Report (PDF)**](reports/final_report.pdf) · [**Reproducible Notebook**](notebook_final_executed.ipynb)
+
 ## Approach
 
 We use the **Coates & Ng (2011)** single-layer unsupervised feature learning pipeline, enhanced with data augmentation, feature normalization, and multi-model ensembling.
