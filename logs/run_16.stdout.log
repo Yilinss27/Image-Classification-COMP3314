@@ -1,0 +1,22 @@
+[12:07:01] INFO === run_16_two_layer started ===
+[12:07:01] INFO L1: P=6 K=1600 | L2: P2=3 K2=1600 inter_pool=3
+[12:07:01] INFO final dim = 12800
+[12:07:01] INFO [START] load data
+[12:07:01] INFO [END]   load data  (0.1s)
+[12:07:01] INFO [START] Layer-1 dict
+[12:07:01] INFO loaded dict run07_dict_K1600_P6_N1000000.npz
+[12:07:01] INFO [END]   Layer-1 dict  (0.1s)
+[12:07:01] INFO   L1 centroids: (1600, 108)
+[12:07:01] INFO [START] Layer-2 dict
+[12:07:01] INFO [START] collect 200000 L2 patches
+[12:07:02] INFO     collected 9800/200000 L2 patches
+[12:07:17] INFO     collected 200000/200000 L2 patches
+[12:07:25] INFO [END]   collect 200000 L2 patches  (23.9s)
+[12:07:25] INFO   L2 patches shape: (200000, 14400)
+[12:07:25] INFO [START] L2 contrast normalize
+[12:07:51] INFO [END]   L2 contrast normalize  (26.2s)
+[12:07:51] INFO [START] L2 fit ZCA
+[12:11:44] INFO [END]   L2 fit ZCA  (233.3s)
+[12:11:44] INFO [START] L2 apply ZCA
+[12:12:18] INFO [END]   L2 apply ZCA  (34.1s)
+[12:12:18] INFO [START] L2 MiniBatchKMeans K2=1600

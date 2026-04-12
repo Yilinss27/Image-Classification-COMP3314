@@ -1,0 +1,52 @@
+[10:38:45] INFO === run_14_flip_csweep_tta started ===
+[10:38:45] INFO [START] load data
+[10:38:45] INFO [END]   load data  (0.1s)
+[10:38:46] INFO flip-aug train: (90000, 32, 32, 3)
+[10:38:46] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[10:38:46] INFO [START] encode aug-train (90k)
+[10:40:16] INFO [END]   encode aug-train (90k)  (90.2s)
+[10:40:16] INFO [START] encode val (5k)
+[10:40:21] INFO [END]   encode val (5k)  (4.9s)
+[10:43:15] INFO   C=0.0010  val=0.8084  (113.6s) ⭐
+[10:45:38] INFO   C=0.0020  val=0.8104  (142.7s) ⭐
+[10:48:28] INFO   C=0.0030  val=0.8104  (170.6s)
+[10:51:59] INFO   C=0.0050  val=0.8084  (210.8s)
+[10:51:59] INFO   -> best C=0.002 val=0.8104
+[10:51:59] INFO 
+--- Full refit C=0.002 ---
+[10:52:00] INFO [START] encode full-aug (100k)
+[10:53:39] INFO [END]   encode full-aug (100k)  (99.4s)
+[10:58:19] INFO   full-refit fit 204.4s
+[10:58:19] INFO 
+--- 10-view TTA (5 crops x 2 flips) ---
+[10:58:20] INFO [START] encode test center_orig
+[10:58:30] INFO [END]   encode test center_orig  (10.2s)
+[10:58:34] INFO [START] encode test center_flip
+[10:58:44] INFO [END]   encode test center_flip  (9.9s)
+[10:58:48] INFO [START] encode test TL_orig
+[10:58:57] INFO [END]   encode test TL_orig  (8.6s)
+[10:59:01] INFO [START] encode test TL_flip
+[10:59:09] INFO [END]   encode test TL_flip  (8.5s)
+[10:59:13] INFO [START] encode test TR_orig
+[10:59:22] INFO [END]   encode test TR_orig  (8.6s)
+[10:59:25] INFO [START] encode test TR_flip
+[10:59:34] INFO [END]   encode test TR_flip  (8.6s)
+[10:59:38] INFO [START] encode test BL_orig
+[10:59:46] INFO [END]   encode test BL_orig  (8.2s)
+[10:59:50] INFO [START] encode test BL_flip
+[10:59:58] INFO [END]   encode test BL_flip  (8.3s)
+[11:00:02] INFO [START] encode test BR_orig
+[11:00:11] INFO [END]   encode test BR_orig  (8.8s)
+[11:00:14] INFO [START] encode test BR_flip
+[11:00:23] INFO [END]   encode test BR_flip  (8.8s)
+[11:00:27] INFO   collected 10 views, each (10000, 10)
+[11:00:27] INFO   wrote sub_run14_P6_K8000_C0.002.csv
+[11:00:27] INFO   wrote sub_run14_tta2_P6_K8000_C0.002.csv
+[11:00:27] INFO   wrote sub_run14_tta10_P6_K8000_C0.002.csv
+[11:00:27] INFO   TTA2 vs no-TTA: 523 diffs (5.23%)
+[11:00:27] INFO   TTA10 vs no-TTA: 1292 diffs (12.92%)
+[11:00:27] INFO   TTA10 vs TTA2: 1175 diffs (11.75%)
+[11:00:27] INFO 
+=== run_14_flip_csweep_tta done ===
+[11:00:27] INFO best C=0.002 val=0.8104
+[11:00:27] INFO submissions: no-TTA, TTA2, TTA10

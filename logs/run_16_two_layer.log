@@ -1,0 +1,70 @@
+[12:07:01] INFO === run_16_two_layer started ===
+[12:07:01] INFO L1: P=6 K=1600 | L2: P2=3 K2=1600 inter_pool=3
+[12:07:01] INFO final dim = 12800
+[12:07:01] INFO [START] load data
+[12:07:01] INFO [END]   load data  (0.1s)
+[12:07:01] INFO [START] Layer-1 dict
+[12:07:01] INFO loaded dict run07_dict_K1600_P6_N1000000.npz
+[12:07:01] INFO [END]   Layer-1 dict  (0.1s)
+[12:07:01] INFO   L1 centroids: (1600, 108)
+[12:07:01] INFO [START] Layer-2 dict
+[12:07:01] INFO [START] collect 200000 L2 patches
+[12:07:02] INFO     collected 9800/200000 L2 patches
+[12:07:17] INFO     collected 200000/200000 L2 patches
+[12:07:25] INFO [END]   collect 200000 L2 patches  (23.9s)
+[12:07:25] INFO   L2 patches shape: (200000, 14400)
+[12:07:25] INFO [START] L2 contrast normalize
+[12:07:51] INFO [END]   L2 contrast normalize  (26.2s)
+[12:07:51] INFO [START] L2 fit ZCA
+[12:11:44] INFO [END]   L2 fit ZCA  (233.3s)
+[12:11:44] INFO [START] L2 apply ZCA
+[12:12:18] INFO [END]   L2 apply ZCA  (34.1s)
+[12:12:18] INFO [START] L2 MiniBatchKMeans K2=1600
+[13:12:11] INFO === run_16_two_layer started ===
+[13:12:11] INFO L1: P=6 K=1600 | L2: P2=3 K2=1600 inter_pool=3
+[13:12:11] INFO final dim = 12800
+[13:12:11] INFO [START] load data
+[13:12:11] INFO [END]   load data  (0.1s)
+[13:12:11] INFO [START] Layer-1 dict
+[13:12:11] INFO loaded dict run07_dict_K1600_P6_N1000000.npz
+[13:12:11] INFO [END]   Layer-1 dict  (0.1s)
+[13:12:11] INFO   L1 centroids: (1600, 108)
+[13:12:11] INFO [START] Layer-2 dict
+[13:12:11] INFO [START] collect 200000 L2 patches
+[13:12:12] INFO     collected 9800/200000 L2 patches
+[13:12:27] INFO     collected 200000/200000 L2 patches
+[13:12:36] INFO [END]   collect 200000 L2 patches  (25.2s)
+[13:12:36] INFO   L2 patches shape: (200000, 14400)
+[13:12:36] INFO [START] L2 contrast normalize
+[13:13:01] INFO [END]   L2 contrast normalize  (24.6s)
+[13:13:01] INFO [START] L2 fit ZCA
+[13:16:32] INFO [END]   L2 fit ZCA  (211.7s)
+[13:16:32] INFO [START] L2 apply ZCA
+[13:17:07] INFO [END]   L2 apply ZCA  (34.1s)
+[13:17:07] INFO [START] L2 MiniBatchKMeans K2=1600
+[13:41:03] INFO [END]   L2 MiniBatchKMeans K2=1600  (1436.3s)
+[13:41:04] INFO saved L2 dict l2_dict_K11600_K21600_P23_ip3.npz
+[13:41:04] INFO [END]   Layer-2 dict  (1733.6s)
+[13:41:04] INFO   L2 centroids: (1600, 14400), ZCA: (14400, 14400)
+[13:41:05] INFO flip-aug train: (90000, 32, 32, 3)
+[13:41:05] INFO [START] encode two-layer aug-train (90k)
+[13:42:18] INFO [END]   encode two-layer aug-train (90k)  (72.6s)
+[13:42:18] INFO [START] encode two-layer val (5k)
+[13:42:22] INFO [END]   encode two-layer val (5k)  (4.4s)
+[13:42:22] INFO   F_tr (90000, 12800)  F_val (5000, 12800)
+[13:43:18] INFO   two-layer val=0.7836  (fit 31.2s)
+[13:43:18] INFO 
+--- Full refit C=0.002 ---
+[13:43:19] INFO [START] encode two-layer full-aug (100k)
+[13:44:40] INFO [END]   encode two-layer full-aug (100k)  (80.7s)
+[13:45:50] INFO   full-refit fit 43.1s
+[13:45:51] INFO [START] encode two-layer test (10k)
+[13:45:59] INFO [END]   encode two-layer test (10k)  (8.1s)
+[13:45:59] INFO [START] encode two-layer test-flip (10k)
+[13:46:07] INFO [END]   encode two-layer test-flip (10k)  (8.2s)
+[13:46:10] INFO   wrote sub_run16_2layer_P6_K1600_1600_C0.002.csv
+[13:46:10] INFO   wrote sub_run16_2layer_tta_P6_K1600_1600_C0.002.csv
+[13:46:10] INFO   TTA changed 984/10000 preds (9.84%)
+[13:46:10] INFO 
+=== run_16_two_layer done ===
+[13:46:10] INFO two-layer val=0.7836 (baseline single-layer flip: 0.8122)
