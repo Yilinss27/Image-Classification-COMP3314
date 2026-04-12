@@ -34,9 +34,24 @@
 \title{%
   \textbf{Image Classification on CIFAR-10 with\\
   Unsupervised Feature Learning and Linear SVMs}\\[6pt]
-  \large COMP3314 Machine Learning --- Assignment 3 Final Report
+  \large COMP3314 Introduction to Machine Learning --- Assignment 3
 }
-\author{Team XX}
+\author{%
+  \begin{tabular}[t]{c}
+    Li Yitong\\
+    \small 3036289377\\
+    \small \href{mailto:u3628937@connect.hku.hk}{u3628937@connect.hku.hk}
+  \end{tabular}
+  \hspace{3em}
+  \begin{tabular}[t]{c}
+    Zheng Yilin\\
+    \small 3036289195\\
+    \small \href{mailto:u3628919@connect.hku.hk}{u3628919@connect.hku.hk}
+  \end{tabular}
+  \\[40pt]
+  \small\textbf{Team BoardLeader}\\
+  \small The University of Hong Kong
+}
 \date{April 2026}
 
 \begin{document}
@@ -63,6 +78,10 @@ power normalisation (+0.012) and a two-model ensemble across patch sizes
 more than all hyperparameter tuning combined, demonstrating that
 representation quality and data diversity dominate classifier choice in
 classical pipelines.
+All code and experimental logs are available on
+\href{https://github.com/Yilinss27/Image-Classification-COMP3314}{GitHub}\footnote{\url{https://github.com/Yilinss27/Image-Classification-COMP3314}};
+the competition leaderboard is hosted on
+\href{https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge}{Kaggle}\footnote{\url{https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge}}.
 \end{abstract}
 
 \tableofcontents
@@ -839,15 +858,172 @@ Apr 12 20:17 & 19 & 2-model ensemble & 0.823 & \textbf{0.829} & Final, 1st place
 \end{tabular}
 \end{table}
 
-\section{Run 07 Sweep: Additional Figures}
+\section{Run 07: 250-Config Sweep Detailed Results}
 \label{app:run07}
+
+The 250-config sweep (run\_07) was the most comprehensive single experiment.
+Figures below show the full grid and key relationships not included in the
+main text.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.75\linewidth]{figures/post07_02_phase_a_analysis.png}
-  \caption{Phase A analysis: pushing dictionary size $K$ beyond 8000 for
-  $P\!=\!6$.  Returns diminish rapidly past $K\!=\!10000$.}
+  \includegraphics[width=\linewidth]{figures/00_all_250_configs.png}
+  \caption{All 250 configurations in the run\_07 sweep.  Each subplot shows
+  one patch size ($P$=4--8); rows are dictionary sizes $K$, columns are
+  regularisation strengths $C$.  Star marks the per-$P$ best; navy outlines
+  indicate configs that beat the prior SOTA (val$\ge$0.7678).}
+  \label{fig:app_all250}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{figures/01_val_vs_K_per_P.png}
+  \caption{Validation accuracy vs.\ dictionary size $K$ for each patch size,
+  showing the best $C$ per ($P$,$K$).  $P$=6 (red) dominates at all $K$
+  values and is still climbing at $K$=8000.  $P$=7 and $P$=8 turn over at
+  $K$=4000 and $K$=3200 respectively.}
+  \label{fig:app_val_vs_K}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{figures/02_heatmap_best_per_PK.png}
+  \caption{Heatmap of best validation accuracy per ($P$,$K$) cell.  SOTA
+  beaters ($\ge$0.7678) outlined in blue.  The sweet spot is a diagonal
+  band: small $P$ wants large $K$, large $P$ wants medium $K$.}
+  \label{fig:app_heatmap}
+\end{figure}
+
+\section{Phase B: Lower C Extension}
+\label{app:phase_b}
+
+Phase B tested $C \in \{0.0005, 0.001, 0.002\}$ on the 16 ($P$,$K$) cells
+where $C$=0.003 was the run\_07 winner.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{figures/phase_b_01_val_vs_C_per_cell.png}
+  \caption{Phase B: validation accuracy vs.\ $C$ for all 16 target cells.
+  Gold star marks the cell winner; green background indicates improvement
+  over the $C$=0.003 baseline.  Improvements concentrate in $P$=7 and
+  $P$=8 cells.}
+  \label{fig:app_phase_b_cells}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{figures/phase_b_02_delta_heatmap.png}
+  \caption{Phase B delta heatmap: best (Phase B $C < 0.003$) minus run\_07
+  baseline ($C$=0.003) for each ($P$,$K$) cell.  Blue = improvement, red =
+  regression.  The benefit of lower $C$ scales monotonically with patch
+  size $P$.}
+  \label{fig:app_phase_b_delta}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/phase_b_03_mean_val_vs_C_per_P.png}
+  \caption{Mean validation accuracy vs.\ $C$, stratified by patch size.
+  $P$=7 and $P$=8 curves rise as $C$ drops, while $P$=4/5/6 curves rise
+  as $C$ grows --- confirming that larger patches require weaker
+  regularisation.}
+  \label{fig:app_phase_b_mean}
+\end{figure}
+
+\section{Phase A: Pushing K Beyond 8000}
+\label{app:phase_a}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{figures/post07_02_phase_a_analysis.png}
+  \caption{Phase A analysis.  Left: val vs.\ $C$ for $P$=6 at four
+  dictionary sizes ($K$=8000--14000), showing the $K \to C^*$ inverse
+  trend.  Right: optimal $C^*$ (red) and best val (blue) vs.\ $K$,
+  confirming the plateau at $K$=8000--10000.}
   \label{fig:app_phase_a}
 \end{figure}
+
+\section{Failed Experiments Detail}
+\label{app:failed}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{figures/post07_05_failed_experiments.png}
+  \caption{Summary of augmentation and architecture experiments.  Only
+  horizontal flip augmentation (green, left) succeeded.  Random crop
+  (orange) caused val regression; TTA10 (red) caused public regression;
+  two-layer Coates (grey) showed no improvement; multi-crop feature
+  averaging (orange, right) caused val regression.}
+  \label{fig:app_failed}
+\end{figure}
+
+\section{Validation vs.\ Public Score}
+\label{app:val_public}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/post07_07_val_vs_public.png}
+  \caption{Validation accuracy vs.\ Kaggle public score for all submitted
+  runs.  The grey dashed line shows val = public.  Notable outliers: power
+  normalisation (val +0.0014 but public +0.0115) and TTA10 (decent val
+  but terrible public).  Val is a noisy, sometimes misleading predictor
+  of public performance.}
+  \label{fig:app_val_public}
+\end{figure}
+
+\section{Top 10 Configurations Across All Experiments}
+\label{app:top10}
+
+\begin{table}[H]
+\centering
+\caption{Top 10 validation accuracies across all 300+ configurations tested.}
+\label{tab:top10}
+\small
+\begin{tabular}{@{}clccccl@{}}
+\toprule
+Rank & Aug & $P$ & $K$ & $C$ & Val Acc & Source \\
+\midrule
+1 & flip+pnorm ens. & 6+7 & 8000+6000 & 0.002 & \textbf{0.8234} & run\_19 (ensemble) \\
+2 & flip+pnorm & 6 & 8000 & 0.002 & 0.8136 & run\_17 \\
+3 & flip & 6 & 8000 & 0.002 & 0.8122 & run\_12 \\
+4 & flip+pnorm & 7 & 6000 & 0.002 & 0.8098 & run\_19 (individual) \\
+5 & flip & 7 & 6000 & 0.002 & 0.8078 & run\_12 \\
+6 & --- & 7 & 6000 & 0.002 & 0.7876 & run\_08 (Phase B) \\
+7 & --- & 6 & 10000 & 0.002 & 0.7860 & run\_10 (Phase A) \\
+8 & --- & 6 & 8000 & 0.003 & 0.7858 & run\_07 \\
+9 & --- & 6 & 10000 & 0.003 & 0.7860 & run\_10 (Phase A) \\
+10 & --- & 6 & 12000 & 0.001 & 0.7848 & run\_10 (Phase A) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{All Kaggle Submissions}
+\label{app:submissions}
+
+\begin{table}[H]
+\centering
+\caption{All Kaggle public leaderboard submissions in chronological order.}
+\label{tab:submissions}
+\small
+\begin{tabular}{@{}llccc@{}}
+\toprule
+Date & Configuration & Val & Public & Rank \\
+\midrule
+Apr 10 & HOG+HistGB & 0.647 & 0.643 & --- \\
+Apr 10 & Coates $K$=400 $C$=0.03 & 0.733 & 0.734 & --- \\
+Apr 11 & Coates $K$=1600 $C$=0.01 & 0.768 & 0.774 & --- \\
+Apr 11 & Coates $K$=3200 $C$=0.01 & --- & 0.772 & --- \\
+Apr 11 & cuML $K$=8000 $C$=0.003 & 0.786 & 0.784 & --- \\
+Apr 12 & Phase B $P$=7 $K$=6000 $C$=0.002 & 0.788 & 0.786 & --- \\
+Apr 12 & $P$=6 $K$=8000 $C$=0.002 & 0.784 & 0.788 & --- \\
+Apr 12 & Phase A $P$=6 $K$=10000 $C$=0.002 & 0.786 & 0.786 & --- \\
+Apr 12 & + flip aug + TTA2 & 0.812 & 0.816 & --- \\
+Apr 12 & TTA10 (5-crop) & 0.810 & 0.800 & --- \\
+Apr 12 & + power norm + TTA2 & 0.814 & \textbf{0.827} & 1st \\
+Apr 12 & 2-model ensemble + TTA2 & 0.823 & \textbf{0.829} & \textbf{1st} \\
+Apr 12 & 3-model ensemble + TTA2 & 0.824 & 0.823 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \end{document}
