@@ -1,6 +1,8 @@
 # Image Classification with Unsupervised Feature Learning
 
-**1st place** on the [HKU COMP3314 Kaggle Challenge](https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge) (Spring 2026) — classical ML only, no neural networks.
+**1st place**\* on the [HKU COMP3314 Kaggle Challenge](https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge) (Spring 2026) — classical ML only, no neural networks.
+
+<sub>\*The leaderboard top entry (0.934) clearly violates the competition constraint of no neural networks or pretrained models, as such accuracy is unattainable with classical methods on this dataset. Our 0.829 is the highest score among rule-compliant submissions.</sub>
 
 CIFAR-10-style dataset (50k train / 10k test, 32×32 RGB, 10 classes). Public leaderboard accuracy: **0.829**.
 
