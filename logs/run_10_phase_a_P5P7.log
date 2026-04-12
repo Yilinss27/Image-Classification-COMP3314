@@ -1,0 +1,48 @@
+[09:18:00] INFO === run_10_phase_a_P5P7 started ===
+[09:18:00] INFO GRIDS: 2 P-groups, 4 (P,K) cells, 12 total fits
+[09:18:00] INFO settings: n_patches=2000000 pool=2 batch_size=64
+[09:18:00] INFO [START] load train/test
+[09:18:00] INFO [END]   load train/test  (0.1s)
+[09:18:00] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[09:18:01] INFO train sub 45000  val 5000
+[09:18:01] INFO 
+============================================================
+[09:18:01] INFO P=5  K_list=[10000, 12000]  C_list=[0.001, 0.002, 0.003]
+[09:18:01] INFO ============================================================
+[09:18:01] INFO 
+### P=5 K=10000 ###
+[09:18:01] INFO [START] sample 2000000 patches (P=5)
+[09:18:05] INFO [END]   sample 2000000 patches (P=5)  (3.9s)
+[09:18:05] INFO [START] contrast normalize
+[09:18:06] INFO [END]   contrast normalize  (1.8s)
+[09:18:06] INFO [START] fit ZCA
+[09:18:07] INFO [END]   fit ZCA  (0.9s)
+[09:18:07] INFO [START] apply ZCA
+[09:18:08] INFO [END]   apply ZCA  (0.4s)
+[09:18:08] INFO [START] MiniBatchKMeans K=10000
+[09:19:55] INFO [END]   MiniBatchKMeans K=10000  (107.5s)
+[09:19:55] INFO saved dict run07_dict_K10000_P5_N2000000.npz
+[09:19:55] INFO [START] GPU encode train+test K=10000 P=5
+[09:20:58] INFO [END]   GPU encode train+test K=10000 P=5  (62.8s)
+[09:20:58] INFO   F_full_tr (50000, 40000)  F_test (10000, 40000)
+[09:22:53] INFO   P=5 K=10000 C=0.0010  val=0.7790  (70.0s)
+[09:24:20] INFO   P=5 K=10000 C=0.0020  val=0.7824  (87.3s)
+[09:26:07] INFO   P=5 K=10000 C=0.0030  val=0.7830  (106.9s)
+[09:26:07] INFO   -> best for P=5 K=10000: C=0.003 val=0.7830  (cell took 486.3s)
+[09:26:07] INFO [START]   refit full P=5 K=10000 C=0.003
+[09:29:09] INFO [END]     refit full P=5 K=10000 C=0.003  (182.7s)
+[09:29:10] INFO   wrote sub_run10_P5_K10000_C0.003.csv
+[09:29:11] INFO 
+### P=5 K=12000 ###
+[09:29:12] INFO [START] sample 2000000 patches (P=5)
+[09:29:20] INFO [END]   sample 2000000 patches (P=5)  (8.3s)
+[09:29:20] INFO [START] contrast normalize
+[09:29:23] INFO [END]   contrast normalize  (3.1s)
+[09:29:23] INFO [START] fit ZCA
+[09:29:25] INFO [END]   fit ZCA  (1.7s)
+[09:29:25] INFO [START] apply ZCA
+[09:29:25] INFO [END]   apply ZCA  (0.7s)
+[09:29:25] INFO [START] MiniBatchKMeans K=12000
+[09:31:42] INFO [END]   MiniBatchKMeans K=12000  (136.3s)
+[09:31:42] INFO saved dict run07_dict_K12000_P5_N2000000.npz
+[09:31:42] INFO [START] GPU encode train+test K=12000 P=5

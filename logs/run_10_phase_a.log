@@ -1,0 +1,93 @@
+[08:08:41] INFO === run_10_phase_a started ===
+[08:08:41] INFO GRIDS: 3 P-groups, 8 (P,K) cells, 44 total fits
+[08:08:41] INFO settings: n_patches=2000000 pool=2 batch_size=64
+[08:08:41] INFO [START] load train/test
+[08:08:41] INFO [END]   load train/test  (0.1s)
+[08:08:41] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[08:08:41] INFO train sub 45000  val 5000
+[08:08:41] INFO 
+============================================================
+[08:08:41] INFO P=6  K_list=[10000, 12000, 14000, 16000]  C_list=[0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035, 0.004]
+[08:08:41] INFO ============================================================
+[08:08:41] INFO 
+### P=6 K=10000 ###
+[08:08:41] INFO [START] sample 2000000 patches (P=6)
+[08:08:45] INFO [END]   sample 2000000 patches (P=6)  (3.6s)
+[08:08:45] INFO [START] contrast normalize
+[08:08:47] INFO [END]   contrast normalize  (2.3s)
+[08:08:47] INFO [START] fit ZCA
+[08:08:48] INFO [END]   fit ZCA  (1.2s)
+[08:08:48] INFO [START] apply ZCA
+[08:08:49] INFO [END]   apply ZCA  (0.7s)
+[08:08:49] INFO [START] MiniBatchKMeans K=10000
+[08:10:38] INFO [END]   MiniBatchKMeans K=10000  (108.7s)
+[08:10:38] INFO saved dict run07_dict_K10000_P6_N2000000.npz
+[08:10:38] INFO [START] GPU encode train+test K=10000 P=6
+[08:11:39] INFO [END]   GPU encode train+test K=10000 P=6  (61.2s)
+[08:11:39] INFO   F_full_tr (50000, 40000)  F_test (10000, 40000)
+[08:13:10] INFO   P=6 K=10000 C=0.0005  val=0.7772  (50.6s)
+[08:14:11] INFO   P=6 K=10000 C=0.0010  val=0.7798  (61.8s)
+[08:15:23] INFO   P=6 K=10000 C=0.0015  val=0.7836  (71.2s)
+[08:16:48] INFO   P=6 K=10000 C=0.0020  val=0.7860  (85.7s)
+[08:18:15] INFO   P=6 K=10000 C=0.0025  val=0.7850  (86.8s)
+[08:19:48] INFO   P=6 K=10000 C=0.0030  val=0.7860  (92.9s)
+[08:21:23] INFO   P=6 K=10000 C=0.0035  val=0.7846  (94.9s)
+[08:23:01] INFO   P=6 K=10000 C=0.0040  val=0.7844  (98.5s)
+[08:23:01] INFO   -> best for P=6 K=10000: C=0.002 val=0.7860  (cell took 860.4s)
+[08:23:01] INFO [START]   refit full P=6 K=10000 C=0.002
+[08:25:30] INFO [END]     refit full P=6 K=10000 C=0.002  (148.2s)
+[08:25:30] INFO   wrote sub_run10_P6_K10000_C0.002.csv
+[08:25:31] INFO 
+### P=6 K=12000 ###
+[08:25:31] INFO [START] sample 2000000 patches (P=6)
+[08:25:34] INFO [END]   sample 2000000 patches (P=6)  (3.6s)
+[08:25:34] INFO [START] contrast normalize
+[08:25:37] INFO [END]   contrast normalize  (2.3s)
+[08:25:37] INFO [START] fit ZCA
+[08:25:38] INFO [END]   fit ZCA  (1.2s)
+[08:25:38] INFO [START] apply ZCA
+[08:25:39] INFO [END]   apply ZCA  (0.6s)
+[08:25:39] INFO [START] MiniBatchKMeans K=12000
+[08:27:46] INFO [END]   MiniBatchKMeans K=12000  (127.2s)
+[08:27:46] INFO saved dict run07_dict_K12000_P6_N2000000.npz
+[08:27:46] INFO [START] GPU encode train+test K=12000 P=6
+[08:28:56] INFO [END]   GPU encode train+test K=12000 P=6  (69.6s)
+[08:28:56] INFO   F_full_tr (50000, 48000)  F_test (10000, 48000)
+[08:31:13] INFO   P=6 K=12000 C=0.0005  val=0.7792  (84.8s)
+[08:32:46] INFO   P=6 K=12000 C=0.0010  val=0.7848  (93.1s)
+[08:34:26] INFO   P=6 K=12000 C=0.0015  val=0.7836  (99.6s)
+[08:36:17] INFO   P=6 K=12000 C=0.0020  val=0.7826  (111.7s)
+[08:38:11] INFO   P=6 K=12000 C=0.0025  val=0.7812  (114.1s)
+[08:40:25] INFO   P=6 K=12000 C=0.0030  val=0.7808  (133.7s)
+[08:42:27] INFO   P=6 K=12000 C=0.0035  val=0.7810  (122.2s)
+[08:44:46] INFO   P=6 K=12000 C=0.0040  val=0.7804  (138.2s)
+[08:44:46] INFO   -> best for P=6 K=12000: C=0.001 val=0.7848  (cell took 1154.9s)
+[08:44:46] INFO [START]   refit full P=6 K=12000 C=0.001
+[08:48:17] INFO [END]     refit full P=6 K=12000 C=0.001  (211.9s)
+[08:48:17] INFO   wrote sub_run10_P6_K12000_C0.001.csv
+[08:48:19] INFO 
+### P=6 K=14000 ###
+[08:48:19] INFO [START] sample 2000000 patches (P=6)
+[08:48:28] INFO [END]   sample 2000000 patches (P=6)  (8.9s)
+[08:48:28] INFO [START] contrast normalize
+[08:48:33] INFO [END]   contrast normalize  (5.3s)
+[08:48:33] INFO [START] fit ZCA
+[08:48:36] INFO [END]   fit ZCA  (2.9s)
+[08:48:36] INFO [START] apply ZCA
+[08:48:37] INFO [END]   apply ZCA  (1.0s)
+[08:48:37] INFO [START] MiniBatchKMeans K=14000
+[08:56:50] INFO [END]   MiniBatchKMeans K=14000  (493.2s)
+[08:56:51] INFO saved dict run07_dict_K14000_P6_N2000000.npz
+[08:56:51] INFO [START] GPU encode train+test K=14000 P=6
+[08:58:08] INFO [END]   GPU encode train+test K=14000 P=6  (77.5s)
+[08:58:08] INFO   F_full_tr (50000, 56000)  F_test (10000, 56000)
+[09:00:28] INFO   P=6 K=14000 C=0.0005  val=0.7816  (77.0s)
+[09:02:17] INFO   P=6 K=14000 C=0.0010  val=0.7792  (108.7s)
+[09:04:15] INFO   P=6 K=14000 C=0.0015  val=0.7780  (118.3s)
+[09:06:29] INFO   P=6 K=14000 C=0.0020  val=0.7770  (134.0s)
+[09:09:01] INFO   P=6 K=14000 C=0.0025  val=0.7748  (152.0s)
+[09:11:33] INFO   P=6 K=14000 C=0.0030  val=0.7724  (151.7s)
+[09:14:13] INFO   P=6 K=14000 C=0.0035  val=0.7706  (160.0s)
+[09:17:00] INFO   P=6 K=14000 C=0.0040  val=0.7676  (166.7s)
+[09:17:00] INFO   -> best for P=6 K=14000: C=0.0005 val=0.7816  (cell took 1720.8s)
+[09:17:00] INFO [START]   refit full P=6 K=14000 C=0.0005
