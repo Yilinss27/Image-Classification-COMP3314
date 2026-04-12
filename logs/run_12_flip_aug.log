@@ -1,0 +1,56 @@
+[09:33:23] INFO === run_12_flip_aug started ===
+[09:33:23] INFO [START] load train/test
+[09:33:23] INFO [END]   load train/test  (0.1s)
+[09:33:23] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[09:33:23] INFO train sub 45000  val 5000
+[09:33:24] INFO flip-aug train: (90000, 32, 32, 3)  labels (90000,)
+[09:33:24] INFO full aug (for refit): (100000, 32, 32, 3)
+[09:33:25] INFO 
+### P=6 K=8000 C=0.002 ###
+[09:33:25] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[09:33:25] INFO [START] GPU encode aug-train (90k) K=8000 P=6
+[09:34:52] INFO [END]   GPU encode aug-train (90k) K=8000 P=6  (87.1s)
+[09:34:52] INFO [START] GPU encode val (5k) K=8000 P=6
+[09:34:57] INFO [END]   GPU encode val (5k) K=8000 P=6  (4.9s)
+[09:34:57] INFO [START] GPU encode test (10k) K=8000 P=6
+[09:35:06] INFO [END]   GPU encode test (10k) K=8000 P=6  (9.5s)
+[09:35:06] INFO [START] GPU encode test-flipped (10k) K=8000 P=6
+[09:35:16] INFO [END]   GPU encode test-flipped (10k) K=8000 P=6  (9.7s)
+[09:35:16] INFO   F_tr_aug (90000, 32000)  F_val (5000, 32000)  F_test (10000, 32000)  F_test_flip (10000, 32000)
+[09:38:55] INFO   aug-train val=0.8122  (fit 150.9s)
+[09:38:55] INFO [START] encode full aug (100k) K=8000 P=6
+[09:40:33] INFO [END]   encode full aug (100k) K=8000 P=6  (97.8s)
+[09:41:59] INFO [START] re-encode test (for full refit) K=8000 P=6
+[09:42:19] INFO [END]   re-encode test (for full refit) K=8000 P=6  (19.9s)
+[09:45:45] INFO   full-refit fit 199.7s
+[09:45:46] INFO   df shapes: orig (10000, 10)  flip (10000, 10)
+[09:45:46] INFO   wrote sub_run12_flip_P6_K8000_C0.002.csv
+[09:45:46] INFO   wrote sub_run12_flip_tta_P6_K8000_C0.002.csv
+[09:45:46] INFO   TTA changed preds on 517/10000 rows (5.17%)
+[09:45:47] INFO 
+### P=7 K=6000 C=0.002 ###
+[09:45:47] INFO loaded dict run07_dict_K6000_P7_N1000000.npz
+[09:45:47] INFO [START] GPU encode aug-train (90k) K=6000 P=7
+[09:46:55] INFO [END]   GPU encode aug-train (90k) K=6000 P=7  (67.7s)
+[09:46:55] INFO [START] GPU encode val (5k) K=6000 P=7
+[09:46:59] INFO [END]   GPU encode val (5k) K=6000 P=7  (3.6s)
+[09:46:59] INFO [START] GPU encode test (10k) K=6000 P=7
+[09:47:06] INFO [END]   GPU encode test (10k) K=6000 P=7  (7.4s)
+[09:47:06] INFO [START] GPU encode test-flipped (10k) K=6000 P=7
+[09:47:13] INFO [END]   GPU encode test-flipped (10k) K=6000 P=7  (7.2s)
+[09:47:13] INFO   F_tr_aug (90000, 24000)  F_val (5000, 24000)  F_test (10000, 24000)  F_test_flip (10000, 24000)
+[09:49:45] INFO   aug-train val=0.8078  (fit 96.7s)
+[09:49:45] INFO [START] encode full aug (100k) K=6000 P=7
+[09:51:03] INFO [END]   encode full aug (100k) K=6000 P=7  (78.2s)
+[09:51:58] INFO [START] re-encode test (for full refit) K=6000 P=7
+[09:52:14] INFO [END]   re-encode test (for full refit) K=6000 P=7  (15.7s)
+[09:54:24] INFO   full-refit fit 125.2s
+[09:54:25] INFO   df shapes: orig (10000, 10)  flip (10000, 10)
+[09:54:25] INFO   wrote sub_run12_flip_P7_K6000_C0.002.csv
+[09:54:25] INFO   wrote sub_run12_flip_tta_P7_K6000_C0.002.csv
+[09:54:25] INFO   TTA changed preds on 525/10000 rows (5.25%)
+[09:54:25] INFO 
+=== run_12_flip_aug summary ===
+[09:54:25] INFO   P=6 K=8000 C=0.002  aug-val=0.8122
+[09:54:25] INFO   P=7 K=6000 C=0.002  aug-val=0.8078
+[09:54:25] INFO === run_12_flip_aug done ===
