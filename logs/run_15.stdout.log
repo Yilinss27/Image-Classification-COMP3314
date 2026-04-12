@@ -1,0 +1,60 @@
+[11:10:44] INFO === run_15_multi_p_ensemble started ===
+[11:10:44] INFO targets: [(6, 8000, 0.002), (7, 6000, 0.002), (8, 3200, 0.003)]
+[11:10:44] INFO [START] load data
+[11:10:44] INFO [END]   load data  (0.1s)
+[11:10:44] INFO full aug: (100000, 32, 32, 3), test: (10000, 32, 32, 3)
+[11:10:44] INFO 
+### P=6 K=8000 C=0.002 ###
+[11:10:44] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[11:10:44] INFO [START] encode full-aug (100k) P=6 K=8000
+[11:12:24] INFO [END]   encode full-aug (100k) P=6 K=8000  (100.0s)
+[2026-04-12 11:13:56.903] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:14:11.191] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:14:30.880] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:15:39.650] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:16:23.704] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:16:37.485] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:16:48.862] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[11:16:48] INFO   fit 196.5s
+[11:16:49] INFO [START] encode test + test-flip P=6 K=8000
+[11:17:10] INFO [END]   encode test + test-flip P=6 K=8000  (20.8s)
+[11:17:18] INFO   df shapes: (10000, 10), (10000, 10)
+[11:17:18] INFO 
+### P=7 K=6000 C=0.002 ###
+[11:17:18] INFO loaded dict run07_dict_K6000_P7_N1000000.npz
+[11:17:18] INFO [START] encode full-aug (100k) P=7 K=6000
+[11:18:37] INFO [END]   encode full-aug (100k) P=7 K=6000  (79.3s)
+[2026-04-12 11:19:41.061] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:20:34.055] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:20:57.674] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:21:09.527] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:21:22.807] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[11:21:33] INFO   fit 121.0s
+[11:21:34] INFO [START] encode test + test-flip P=7 K=6000
+[11:21:49] INFO [END]   encode test + test-flip P=7 K=6000  (15.7s)
+[11:21:55] INFO   df shapes: (10000, 10), (10000, 10)
+[11:21:55] INFO 
+### P=8 K=3200 C=0.003 ###
+[11:21:55] INFO loaded dict run07_dict_K3200_P8_N1000000.npz
+[11:21:55] INFO [START] encode full-aug (100k) P=8 K=3200
+[11:22:55] INFO [END]   encode full-aug (100k) P=8 K=3200  (59.7s)
+[2026-04-12 11:23:45.986] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:23:56.997] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:24:02.105] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:24:06.832] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:24:12.167] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 11:24:17.680] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[11:24:22] INFO   fit 58.2s
+[11:24:22] INFO [START] encode test + test-flip P=8 K=3200
+[11:24:34] INFO [END]   encode test + test-flip P=8 K=3200  (12.2s)
+[11:24:37] INFO   df shapes: (10000, 10), (10000, 10)
+[11:24:37] INFO 
+--- Ensemble (3 models) ---
+[11:24:37] INFO   wrote sub_run15_ensemble_noTTA.csv
+[11:24:37] INFO   wrote sub_run15_ensemble_tta2.csv
+[11:24:37] INFO   wrote sub_run15_ensemble_all6.csv
+[11:24:37] INFO   noTTA vs TTA2: 277 diffs (2.77%)
+[11:24:37] INFO   noTTA vs all6: 277 diffs (2.77%)
+[11:24:37] INFO   TTA2 vs all6: 0 diffs (0.00%)
+[11:24:37] INFO 
+=== run_15_multi_p_ensemble done ===
