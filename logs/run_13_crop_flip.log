@@ -1,0 +1,53 @@
+[09:59:27] INFO === run_13_crop_flip started ===
+[09:59:27] INFO augmentation: 4x [orig, flip, rcrop_A_maybe_flip, rcrop_B_maybe_flip]
+[09:59:27] INFO [START] load train/test
+[09:59:28] INFO [END]   load train/test  (0.1s)
+[09:59:28] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[09:59:28] INFO train sub 45000  val 5000
+[09:59:28] INFO [START] build aug-views (4x) for 45k train
+[09:59:29] INFO [END]   build aug-views (4x) for 45k train  (1.4s)
+[09:59:29] INFO aug train: (180000, 32, 32, 3)  labels (180000,)
+[09:59:29] INFO [START] build aug-views (4x) for full 50k (for refit)
+[09:59:31] INFO [END]   build aug-views (4x) for full 50k (for refit)  (1.6s)
+[09:59:31] INFO full aug: (200000, 32, 32, 3)
+[09:59:31] INFO 
+### P=6 K=8000 C=0.002 ###
+[09:59:31] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[09:59:31] INFO [START] GPU encode aug-train (180k) K=8000 P=6
+[10:02:03] INFO [END]   GPU encode aug-train (180k) K=8000 P=6  (151.9s)
+[10:02:03] INFO [START] GPU encode val (5k) K=8000 P=6
+[10:02:07] INFO [END]   GPU encode val (5k) K=8000 P=6  (4.3s)
+[10:02:07] INFO   F_tr_aug (180000, 32000)  F_val (5000, 32000)
+[10:08:02] INFO === run_13_crop_flip started ===
+[10:08:02] INFO augmentation: 2x [random_crop_A_maybe_flip, random_crop_B_maybe_flip]
+[10:08:02] INFO [START] load train/test
+[10:08:03] INFO [END]   load train/test  (0.1s)
+[10:08:03] INFO train (50000, 32, 32, 3)  test (10000, 32, 32, 3)
+[10:08:03] INFO train sub 45000  val 5000
+[10:08:03] INFO [START] build aug-views (2x) for 45k train
+[10:08:04] INFO [END]   build aug-views (2x) for 45k train  (1.0s)
+[10:08:04] INFO aug train: (90000, 32, 32, 3)  labels (90000,)
+[10:08:04] INFO [START] build aug-views (2x) for full 50k (for refit)
+[10:08:05] INFO [END]   build aug-views (2x) for full 50k (for refit)  (1.3s)
+[10:08:05] INFO full aug: (100000, 32, 32, 3)
+[10:08:05] INFO 
+### P=6 K=8000 C=0.002 ###
+[10:08:05] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[10:08:05] INFO [START] GPU encode aug-train (90k) K=8000 P=6
+[10:09:22] INFO [END]   GPU encode aug-train (90k) K=8000 P=6  (77.3s)
+[10:09:22] INFO [START] GPU encode val (5k) K=8000 P=6
+[10:09:27] INFO [END]   GPU encode val (5k) K=8000 P=6  (4.2s)
+[10:09:27] INFO   F_tr_aug (90000, 32000)  F_val (5000, 32000)
+[10:13:06] INFO   2x-cropflip val=0.7912  (fit 158.8s)
+[10:13:06] INFO [START] GPU encode full-aug (100k) K=8000 P=6
+[10:14:30] INFO [END]   GPU encode full-aug (100k) K=8000 P=6  (84.5s)
+[10:15:41] INFO [START] re-encode test + test-flip K=8000 P=6
+[10:15:58] INFO [END]   re-encode test + test-flip K=8000 P=6  (16.9s)
+[10:19:42] INFO   full-refit fit 218.4s
+[10:19:43] INFO   wrote sub_run13_cropflip_P6_K8000_C0.002.csv
+[10:19:43] INFO   wrote sub_run13_cropflip_tta_P6_K8000_C0.002.csv
+[10:19:43] INFO   TTA changed preds on 843/10000 rows (8.43%)
+[10:19:44] INFO 
+=== run_13_crop_flip summary ===
+[10:19:44] INFO   P=6 K=8000 C=0.002  2x-cropflip val=0.7912
+[10:19:44] INFO === run_13_crop_flip done ===
