@@ -4,7 +4,7 @@
 
 CIFAR-10-style dataset (50k train / 10k test, 32×32 RGB, 10 classes). Public leaderboard accuracy: **0.829**.
 
-[**Technical Report (PDF)**](reports/final_report.pdf) · [**Reproducible Notebook**](notebook_final_executed.ipynb)
+[**Technical Report**](reports/final_report.pdf) · [**Notebook**](notebook_final_executed.ipynb) · [**Leaderboard**](https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge/leaderboard) · [**Dataset**](https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge/data) · [**Experimental Log**](reports/post_run07_experiments.md)
 
 ## Approach
 
