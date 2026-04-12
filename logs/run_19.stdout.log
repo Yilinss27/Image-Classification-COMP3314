@@ -1,0 +1,56 @@
+[18:46:10] INFO === run_19_pnorm_ensemble started ===
+[18:46:10] INFO targets: [(6, 8000, 0.002), (7, 6000, 0.002), (8, 3200, 0.003)]
+[18:46:10] INFO [START] load data
+[18:46:11] INFO [END]   load data  (0.1s)
+[18:46:11] INFO full aug: (100000, 32, 32, 3), test: (10000, 32, 32, 3)
+[18:46:11] INFO 
+### P=6 K=8000 C=0.002 ###
+[18:46:11] INFO loaded dict run07_dict_K8000_P6_N1000000.npz
+[18:46:11] INFO [START] encode full-aug (100k) P=6 K=8000
+[18:47:50] INFO [END]   encode full-aug (100k) P=6 K=8000  (98.5s)
+[2026-04-12 18:50:35.800] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:50:56.990] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:51:33.577] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:51:53.121] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:52:10.326] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:52:49.052] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[18:52:49] INFO   fit 207.0s
+[18:52:49] INFO [START] encode test + test-flip P=6 K=8000
+[18:53:09] INFO [END]   encode test + test-flip P=6 K=8000  (19.8s)
+[18:53:21] INFO   df shapes: (10000, 10), (10000, 10)
+[18:53:21] INFO 
+### P=7 K=6000 C=0.002 ###
+[18:53:21] INFO loaded dict run07_dict_K6000_P7_N1000000.npz
+[18:53:21] INFO [START] encode full-aug (100k) P=7 K=6000
+[18:54:37] INFO [END]   encode full-aug (100k) P=7 K=6000  (76.0s)
+[2026-04-12 18:56:10.525] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:56:40.103] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:56:55.265] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:57:07.894] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:57:33.816] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:57:55.274] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 18:58:05.512] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[18:58:05] INFO   fit 138.4s
+[18:58:05] INFO [START] encode test + test-flip P=7 K=6000
+[18:58:20] INFO [END]   encode test + test-flip P=7 K=6000  (15.0s)
+[18:58:30] INFO   df shapes: (10000, 10), (10000, 10)
+[18:58:30] INFO 
+### P=8 K=3200 C=0.003 ###
+[18:58:30] INFO loaded dict run07_dict_K3200_P8_N1000000.npz
+[18:58:30] INFO [START] encode full-aug (100k) P=8 K=3200
+[18:59:27] INFO [END]   encode full-aug (100k) P=8 K=3200  (57.4s)
+[2026-04-12 19:00:12.838] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 19:00:22.885] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 19:00:43.032] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[2026-04-12 19:00:59.443] [CUML] [warning] L-BFGS stopped, because the line search failed to advance (step delta = 0.000000)
+[19:01:03] INFO   fit 60.2s
+[19:01:04] INFO [START] encode test + test-flip P=8 K=3200
+[19:01:15] INFO [END]   encode test + test-flip P=8 K=3200  (11.5s)
+[19:01:20] INFO   df shapes: (10000, 10), (10000, 10)
+[19:01:20] INFO 
+--- Ensemble (3 models + pnorm) ---
+[19:01:20] INFO wrote sub_run19_pnorm_ensemble_noTTA.csv
+[19:01:20] INFO wrote sub_run19_pnorm_ensemble_tta2.csv
+[19:01:20] INFO noTTA vs TTA2: 356 diffs (3.56%)
+[19:01:20] INFO 
+=== run_19_pnorm_ensemble done ===
