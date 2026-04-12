@@ -24,6 +24,8 @@ Over the course of 6 experiments on April 11, 2026, we progressed from a naive r
 
 **Narrative arc:** raw pixels (0.50) -> handcrafted features (0.65) -> unsupervised learned features (0.73) -> GPU-scaled features (0.77) -> ready for massive sweep.
 
+![Val accuracy progression across runs 01-06](figures/early_01_progression.png)
+
 ---
 
 ## 1. run_01 -- Raw Pixel Baseline
@@ -96,6 +98,8 @@ Use domain knowledge to design features that capture the properties raw pixels c
 **Total wall time:** ~82 minutes (04:27 to 05:49).  
 **Feature extraction:** 12.4 s (train), 2.6 s (test) — fast with joblib parallelism.  
 **Kaggle public score:** 0.64250 (first submission).
+
+![Classifier comparison: run_01 (raw pixels) vs run_02 (handcrafted features)](figures/early_02_classifier_comparison.png)
 
 ### Analysis
 
