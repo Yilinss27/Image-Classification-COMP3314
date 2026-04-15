@@ -10,7 +10,7 @@ CIFAR-10-style dataset (50k train / 10k test, 32×32 RGB, 10 classes). Public le
 
 ## News
 
-- **2026-04-15** — 🚀 [Private leaderboard](https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge/leaderboard?) released: **2nd place with 0.83012!** (1st among rule-compliant submissions), slightly above our public score of 0.829 — confirming the approach generalizes to the held-out split.
+- **2026-04-14** — 🚀 [Private leaderboard](https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge/leaderboard?) released: **2nd place with 0.83012!** (1st among rule-compliant submissions), slightly above our public score of 0.829 — confirming the approach generalizes to the held-out split.
 
 ## Approach
 
