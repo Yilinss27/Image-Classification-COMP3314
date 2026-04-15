@@ -8,6 +8,10 @@ CIFAR-10-style dataset (50k train / 10k test, 32×32 RGB, 10 classes). Public le
 
 [**Technical Report**](reports/final_report.pdf) · [**Notebook**](notebook_final_executed.ipynb) · [**Leaderboard**](https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge/leaderboard) · [**Dataset**](https://www.kaggle.com/competitions/hku-comp3314-2026-spring-challenge/data) · [**Experimental Log**](reports/post_run07_experiments.md)
 
+## News
+
+- **2026-04-15** — Private leaderboard released: **2nd place with 0.83012** (1st among rule-compliant submissions), slightly above our public score of 0.829 — confirming the approach generalizes to the held-out split.
+
 ## Approach
 
 We use the **Coates & Ng (2011)** single-layer unsupervised feature learning pipeline, enhanced with data augmentation, feature normalization, and multi-model ensembling.
